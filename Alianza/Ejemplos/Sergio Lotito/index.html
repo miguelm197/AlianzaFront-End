@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Supermerado</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/estilosuper.css">
+    
+
+    <!--
+    <script type="text/javascript" src="js/precios.js"></script>
+     <a href="js/precios.js"></a>
+    -->
+
+    <p id="cantidad"></p>
+    
+
+    <script>
+      
+      // Define variables (base de datos)
+      var n_combo = ["Combo 1","Combo 2","Combo 3","Combo 4","Combo 5"];
+      var b_combo = [false, false, false, false, false];
+      var c_combo = [0,0,0,0,0];
+      var p_combo = [180,130,210,225,255];
+      var n_separ = ["Agua","Refresco","Hamburguesa 1","Hamburguesa 2"];
+      var p_separ = [25,60,110,120];
+      var b_separ = [false, false, false, false];
+      s_total = 0;
+      s_descumonto = 0;
+      s_descuporce = 0;
+      //
+
+      function elegido1(v_combo){  // Elije un combo
+         
+          var v_cant = prompt("Por favor ingrese la cantidad (cero para anular la línea)", 0);  
+          if (v_cant > 0) {
+              c_combo[v_combo-1] = v_cant;
+          }else{
+              v_cant=0; 
+          }
+
+          //console.log(p_combo[v_combo-1] * c_combo[v_combo-1]);
+
+          if (v_cant == 0) {
+            b_combo[v_combo-1]=false;
+          }else{
+            if (b_combo[v_combo-1] == true) {
+              b_combo[v_combo-1]=false;
+            }else{
+              b_combo[v_combo-1]=true;
+            }
+          }
+
+          //console.log(b_combo[v_combo-1]);
+          s_total = MuestraDetalleCombo();
+
+      }
+
+      function elegido2(v_separ){  // Elije productos separados
+          if (b_separ[v_separ-1] == true) {
+              b_separ[v_separ-1] = false;
+          }else{
+              b_separ[v_separ-1] = true;
+          }
+          //console.log(b_separ[v_separ-1]);
+          s_total = MuestraDetalleCombo();
+      }
+
+      function aplicadesc(v_descu){  // Aplica descuento
+          //console.log(v_descu)
+          switch (v_descu) {
+            case 0:
+              s_descuporce = 0;
+              break;
+            case 1:
+              s_descuporce = 5;
+              break
+            case 2:
+              s_descuporce = 10;
+              break;
+            case 3:
+              s_descuporce = 2;
+              break;
+            default:
+              s_descuporce = 0;
+          }
+          //console.log(s_descuporce);
+          s_total = MuestraDetalleCombo();
+      }
+
+      function MuestraDetalleCombo(){
+          var s_totalc = 0;
+          var texto = "";
+          for (i=1; i <= 5; i++) {
+              if (b_combo[i-1] == true){
+                s_totalc = s_totalc + p_combo[i-1] * c_combo[i-1];
+                texto += n_combo[i-1] + " $ " + p_combo[i-1] + " x " + c_combo[i-1] + " = " + p_combo[i-1] * c_combo[i-1] + "<br>";
+              }
+          }
+
+          for (i=1; i < 4; i++) {
+              if (b_separ[i-1] == true){
+                s_totalc = s_totalc + p_separ[i-1] * 1;
+                texto += n_separ[i-1] + " $ " + p_separ[i-1] + " x 1 " + " = " + p_separ[i-1] * 1 + "<br>";
+              }
+          }
+
+          s_total = s_totalc;   // Mantiene el total original, sin descuento
+          s_descumonto = s_totalc * (s_descuporce/100);
+          s_totalc = s_totalc - s_descumonto;
+          document.getElementById("descuento").innerHTML = s_descumonto;
+          document.getElementById("linea").innerHTML = texto;
+          document.getElementById("l_total").innerHTML = s_totalc;
+          console.log(s_totalc);
+          return s_totalc;
+      }
+
+      function confirma(){
+        alert("Operación confirmada.");
+        location.reload();
+      }
+
+      function cancela(){
+        alert("Operación CANCELADA.");
+        location.reload();
+      }
+
+    </script>
+
+
+
+</head>
+
+<body>
+<!-- <img id="logo" src="imagenes/logo2.jpeg" alt="Mountain View" style="width:154px;height:110px;">
+-->
+<div class="container">     <!-- Titulo principal -->
+  <div class="page-header" style="background-color:grey;">
+    <h3>Supermercado Front-end !</h3> 
+    <h5>Módulo de ventas</h5> 
+  </div>
+    
+</div>
+
+<div class="container-fluid">
+
+<div class="row">   
+    <div class="col-sm-4" style="background-color:powderblue;"> <!-- Elije productos -->
+        <div class="container">   <!-- Botones de combos -->
+          <div class="Titulov2"><h4>Seleccione el Combo</h4></div>
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary" name="botCombo1" onclick="elegido1(1)">Combo 1 $</button>
+            <button type="button" class="btn btn-primary" name="botCombo2" onclick="elegido1(2)">Combo 2 $</button>
+            <button type="button" class="btn btn-primary" name="botCombo3" onclick="elegido1(3)">Combo 3 $</button>
+            <button type="button" class="btn btn-primary" name="botCombo4" onclick="elegido1(4)">Combo 4 $</button>
+            <button type="button" class="btn btn-primary" name="botCombo5" onclick="elegido1(5)">Combo 5 $ </button>
+            <br/>
+          </div>
+
+          <div class="btn-group-vertical">
+            <p id="lCombo1"></p>
+            <p id="lCombo2"></p>
+            <p id="lCombo3"></p>
+            <p id="lCombo4"></p>
+            <p id="lCombo5"></p>
+
+            <script>
+            document.getElementById("lCombo1").innerHTML = p_combo[0];
+            document.getElementById("lCombo2").innerHTML = p_combo[1];
+            document.getElementById("lCombo3").innerHTML = p_combo[2];
+            document.getElementById("lCombo4").innerHTML = p_combo[3];
+            document.getElementById("lCombo5").innerHTML = p_combo[4];
+            </script>
+          </div>
+
+          <div class="container">  <!-- Elije productos separados -->
+            <div class="Titulov2"><h5>Productos sin combo</h5></div>
+
+            <form>
+              
+              <div class="checkbox">
+                <label><input type="checkbox" value="" onclick="elegido2(1)">Agua $ 25</label>
+              </div>
+              <div class="checkbox">
+                  <label><input type="checkbox" value="" onclick="elegido2(2)" >Refresco $ 60</label>
+              </div>
+              <div class="checkbox disabled">
+                  <label><input type="checkbox" value="" onclick="elegido2(3)">Hamburguesa 1 $ 110</label>
+              </div>
+              <div class="checkbox disabled">
+                <label><input type="checkbox" value="" onclick="elegido2(4)" disabled>Hamburguesa 2 $ 120</label>
+              </div>
+            </form>
+         </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4" style="background-color: #F781D8;">  <!-- Tipo de Descuento -->
+      <div class="Titulov2"><h4>Seleccione el descuento</h4></div>
+      <form action="">
+          <input type="radio" name="Tipo_Cliente" onclick="aplicadesc(0)"> Normal (Sin descuento)<br>
+          <input type="radio" name="Tipo_Cliente" onclick="aplicadesc(1)"> Descuento Martes (5%)<br>
+          <input type="radio" name="Tipo_Cliente" onclick="aplicadesc(2)"> Descuento Especial (10%)<br>
+          <input type="radio" name="Tipo_Cliente" onclick="aplicadesc(3)"> Descuento VIP (20%)
+      </form>
+     </div>
+
+    <div class="col-sm-4" style="background-color:#82FA58;"> <!-- Detalle de la compra -->
+      <div class="container">
+        <div class="Titulov2"><h4>Detalle de la Compra</h4></div>
+        <p id="linea"></p>
+      </div>
+      <div class="mdescuento"><h6>Descuento obtenido $</h6></div>
+      <div class="mdescuento"><p id="descuento"></p></div>
+      <p>    -------------------------------</p>
+      <div class="mtotal"><p>    Total a pagar $ </p></div>
+      <div class="mtotal"><p id="l_total" </p></div>
+    </div>    
+
+</div>
+
+<div class="panel-footer" style="background-color: #6E6E6E">
+  <div class="Titulov2"><h4>Finalizar la transacción actual</h4></div>
+     <br/>
+     <button type="button" class="btn btn-success" onclick="confirma()">Confirma Operación</button>
+     <button type="button" class="btn btn-danger" onclick="cancela()">Cancela Operación</button>
+</div>
+
+
+</div>
+
+</body>
+</html>
