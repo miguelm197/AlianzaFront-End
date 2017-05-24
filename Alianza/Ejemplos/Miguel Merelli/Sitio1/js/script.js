@@ -174,17 +174,159 @@ function ejercicio5(inicio, fin) {
 
 
 
-    /*
-     alert("original   " + entrada);
-     var ultimo = entrada.pop();
-     alert(entrada + "\n pop   " + ultimo);
-     var primero = entrada.shift();
-     alert(entrada + "\n shift   " + primero);
-     var push = entrada.push(10);
-     alert(entrada + "\n push   " + push);
-     entrada.reverse
-     alert(entrada + "\n reverse   " + entrada);
-     var unshift = entrada.unshift(0);
-     alert(entrada + "\n unshift   " + unshift);
- */
 
+
+function ejercicio6() {
+
+    //EJEMPLO DE SWITCH
+    console.log("\n\n\n\n >>> SWITCH <<<");
+
+    var semana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+
+    var verificador = false;
+    var indice;
+
+    do {
+        var dia = prompt('Ingrese un día de la semana: ', '');
+
+        //***** OPCION 1 *****
+        /*
+        for (var i = 0; i < semana.length; i++) {
+            if (dia == semana[i]  ||  dia == "") {
+                verificador = true;
+                break;
+            }
+        }*/
+
+        //***** OPCION 2 ******
+        /*
+        var contador = 0;
+        while (contador < semana.length && !verificador){
+            if (dia == semana[contador] || dia == ""){
+                verificador = true;
+            }
+            contador = contador + 1;
+        }
+        */
+
+        //***** OPCION 3 ******
+
+        if ((semana.indexOf(dia) != -1) || dia == "") {
+            verificador = true;
+            indice = semana.indexOf(dia);
+        }
+
+
+        if (verificador) {
+            var resultado = "";
+            switch (dia) {
+                case "Lunes": resultado = "Día Lunes"; break;
+                case "Martes": resultado = "Día Martes"; break;
+                case "Miércoles": resultado = "Día Miércoles"; break;
+                case "Miercoles": resultado = "Día Miércoles"; break;
+                case "Jueves": resultado = "Día Jueves"; break;
+                case "Viernes": resultado = "Día Viernes"; break;
+                case "Sábado": resultado = "Día Sábado"; break;
+                case "Sabado": resultado = "Día Sábado"; break;
+                case "Domingo": resultado = "Día Domingo"; break;
+                case "": resultado = "No ha ingresado ningún dato"; break;
+            }
+
+
+            //Convierte a los de indice par en minuscula e impar en mayusculas
+            if (indice % 2 == 0) {
+                resultado = resultado.toLowerCase();
+            } else {
+                resultado = resultado.toUpperCase();
+            }
+
+
+        } else {
+            resultado = "El valor ingresado no es correcto";
+        }
+        alert(resultado);
+        console.log("Resultado: " + resultado);
+
+    } while (!verificador);
+
+}
+
+
+function ejercicio7() {
+    //COMIDA RAPIDA
+
+    do {
+        var v = prompt("Comandos: \n\nAgua $40  \nJugo $50 \nPapas $40    \nAros de Cebolla $50 \n Hamburguesa $110 \n\nSalir \n\n\nIngrese el pedido: ", "");
+        alert(v);
+    } while (v != "Salir");
+
+
+
+
+}
+
+
+function ejercicio8() {
+    //HASHTAG
+    var linea = "Estos son todos los hashtag:<Hola>y<Mundo>y<Chau>";
+
+    var a = linea.indexOf("<");
+    var b = linea.indexOf(">");
+    var c = linea.lastIndexOf("<");
+    var d = linea.lastIndexOf(">");
+
+
+    var nuevaLinea = linea.substring(a, d + 1);
+
+    var lineafin = "";
+    var e;
+    var separadorY = nuevaLinea.split("y");
+
+    for (var i = 0; i < separadorY.length; i++) {
+        e = separadorY[i].indexOf(">");
+        //alert("palabra " + separadorY[i].substring(1, e));
+        lineafin = lineafin + separadorY[i].substring(1, e) + " ";
+    }
+    alert("Linea: '" + linea + "'" + "\nNuevaLinea: '" + lineafin + "'");
+}
+
+
+
+function ejercicio9() {
+    //HASHTAG 2
+
+    var linea = linea = "#Este# conjunto caracteres tiene un mensaje oculto, que #si se ve# desde cierta perspectiva podrá ver el #mensaje oculto#"
+    var array = linea.split("#");
+    var linea2="";
+
+    for (var i=1; i<array.length-1; i++){
+
+        if (i%2 != 0){
+            linea2=linea2 + array[i] + " ";
+        }
+    }
+      alert("Linea: " + linea + "\n Linea2: " + linea2);
+}
+
+
+
+
+function ejercicio10() {
+    //HASHTAG 3
+    var linea = "Estos son todos los hashtag:<Hola>yrtasfask<fasifuahsifu h <sape>sadasfas   <Mundo>ytttttttttttttt<Chau>";
+    var palabra="";
+    var separador2 = linea.split(">");
+    var lineaFinal = "";
+
+    for (var i = 0; i < separador2.length; i++) {
+       var a = separador2[i].indexOf("<") + 1;
+       var b = separador2[i].length;
+       palabra = separador2[i].substring(a,b);
+       lineaFinal=lineaFinal + palabra + " ";
+    }
+    alert(lineaFinal);
+}
+
+
+
+//<hola>xy<<mundo>xy><rtx<chau>0
