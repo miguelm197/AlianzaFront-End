@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <!-- MODAL DE PRODUCTOS -->
+    <div class="modal fade bs-example-modal-lg sape" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="contenedor productoModal">
+            <div class="cerrar" data-dismiss="modal">x</div>
+            <div class="imagen"></div>
+            <div class="informacion">
+                <div class="titulo">
+                    <h1 class="tituloProd">Producto</h1>
+                    <h4 class="predescrip">Descripción 1</h4>
+                </div>
+                <div class="descripcion">
+                    <p class="descrip"></p>
+                </div>
+                <div class="controles">
+                    <div class="contador">
+                        <div class="contenedorContador">
+                            <div class="botonMenos">-</div>
+                            <div class="entrada">
+                                <input class="form-control" id="cantidad" type="number" min="0" placeholder="0">
+                            </div>
+                            <div class="botonMas" onclick="cantidad()">+</div>
+                        </div>
+                    </div>
+                    <div class="agrCarrito">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <nav class="nav"></nav>
+
+    <div class="contenedorGral">
+        <div class="container">
+            <div class="jumbotron" onclick="dadoEnClase()">
+
+                <div class="row">
+                    <h2>Productos</h2><br>
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Buscar</button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row producteitors"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="carrito">
+        <div class="cerrarCarrito">
+            <button onclick="abrirCarrito()"><</button>
+        </div>
+        <div class="tituloCarrito">
+            <h1>Carrito</h1>
+        </div>
+        <div class="contenedorcarrito">
+
+
+
+            <div class="item" id="#">
+                <div class="contenedorItem">
+                    <div class="tituloItem">
+                        <span id="tituloItem#">Articulo 1</span>
+                    </div>
+                    <div class="cantidadItem">
+                        <span>Cantidad: </span>
+                        <span id="itemCantidad#">2</span>
+                    </div>
+                </div>
+                <div class="quitarItem">
+                    <button>x</button>
+                </div>
+            </div>
+
+            <div class="item" id="#">
+                <div class="contenedorItem">
+                    <div class="tituloItem">
+                        <span id="tituloItem#">Articulo 1</span>
+                    </div>
+                    <div class="cantidadItem">
+                        <span>Cantidad: </span>
+                        <span id="itemCantidad#">2</span>
+                    </div>
+                </div>
+                <div class="quitarItem">
+                    <button>x</button>
+                </div>
+            </div>
+
+
+            <div class="totalCarrito">
+                <span>Total: $</span>
+                <span id="totalCarrito">2558</span>
+            </div>
+        </div>
+
+        <footer>
+
+        </footer>
+
+
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/productos.js"></script>
+</body>
+
+</html>

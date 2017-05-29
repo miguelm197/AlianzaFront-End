@@ -52,7 +52,6 @@ function ejercicio1() {
 
 
 
-
 function ejercicio2() {
     //MAYOR Y MENOR
     console.log("\n\n\n\n >>> MAYOR Y MENOR <<<")
@@ -328,5 +327,25 @@ function ejercicio10() {
 }
 
 
+function ejercicio11(){
+    //HASHTAG 3
+    var linea = "<hola>xy<<mundo>xy><rtx<chau>0";
+    var lineaFIn = "";
+    var temp = "";
+    var pos = 0;
 
-//<hola>xy<<mundo>xy><rtx<chau>0
+    for (var i=0; i<linea.length; i++){
+        if (linea[i] == "<" || linea[i] == ">"){
+            temp = linea[i];
+            pos = i;
+            if (linea[i]==">"){
+                if (temp=="<"){
+                    alert("palabra: " );
+                }
+            }
+        }
+    }
+
+    
+
+}
