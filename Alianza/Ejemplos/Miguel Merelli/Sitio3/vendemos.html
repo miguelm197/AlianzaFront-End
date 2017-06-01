@@ -28,11 +28,11 @@
                 <div class="controles">
                     <div class="contador">
                         <div class="contenedorContador">
-                            <div class="botonMenos">-</div>
+                            <div class="botonMenos" onclick="agregarAlCarritoVarios(-1)">-</div>
                             <div class="entrada">
-                                <input class="form-control" id="cantidad" type="number" min="0" placeholder="0">
+                                <input class="form-control" id="cantidad" type="number" min="0" placeholder="0" onchange="agregarAlCarritoVarios(0)">
                             </div>
-                            <div class="botonMas" onclick="cantidad()">+</div>
+                            <div class="botonMas" onclick="agregarAlCarritoVarios(1)">+</div>
                         </div>
                     </div>
                     <div class="agrCarrito">
@@ -48,7 +48,7 @@
 
     <div class="contenedorGral">
         <div class="container">
-            <div class="jumbotron" onclick="dadoEnClase()">
+            <div class="jumbotron">
 
                 <div class="row">
                     <h2>Productos</h2><br>
@@ -77,7 +77,7 @@
         <div class="contenedorcarrito">
 
 
-
+<!--
             <div class="item" id="#">
                 <div class="contenedorItem">
                     <div class="tituloItem">
@@ -91,22 +91,8 @@
                 <div class="quitarItem">
                     <button>x</button>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="item" id="#">
-                <div class="contenedorItem">
-                    <div class="tituloItem">
-                        <span id="tituloItem#">Articulo 1</span>
-                    </div>
-                    <div class="cantidadItem">
-                        <span>Cantidad: </span>
-                        <span id="itemCantidad#">2</span>
-                    </div>
-                </div>
-                <div class="quitarItem">
-                    <button>x</button>
-                </div>
-            </div>
 
 
             <div class="totalCarrito">

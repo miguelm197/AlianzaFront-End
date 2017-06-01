@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function valor(pedido){
+                switch(pedido){
+                        case "combo":
+                            return(180);
+                            break;
+                        case "hamburguesa":
+                            return(110);
+                            break;
+                        case "papas":
+                            return(40);
+                            break;
+                        case "aros":
+                            return(50);
+                            break;
+                        case "agua":
+                            return(40);
+                            break;
+                        case "jugo":
+                            return(50);
+                            break;
+                }
+            }
+            //Leer cantidad
+            var cantidad, total= 0;
+            while (pedido != "termino"){
+                cantidad = valor(pedido);
+                total = total + cantidad;
+                //leer pedido de nuevo
+            }
+            //Mostrando (total);
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> </h1>
+        <input type="submit" value="Click" onclick="valor()" />
+    <body>
+</html>
