@@ -1,3 +1,4 @@
+
 .jumbotron{
     margin-top: 80px;
 }
@@ -9,14 +10,17 @@
     transition: all .9s;
     cursor: pointer;
     transition: all .2s linear;
-
-
 }
 .producto:hover{
 
         box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.75);
 }
+.productoGondola{
+    height: 450px;
+}
+
 .contenedor{
+    
     width: 90%;
     height: 90%;
     top: 50%;
@@ -38,14 +42,19 @@
 .informacion{
     position: absolute;
     top: 0px;
-   
     left: 66%;
     width: 34%;
     height: 100%;
 }
 
-prod {
-    margin-bottom: 60px;
+.precioProducto{
+    font-size: 17px;
+    padding-top:8px;
+    margin-left: 10px;
+}
+
+.prod {
+    margin-bottom: 40px;
 }
 
 .informacion .titulo{
@@ -233,7 +242,8 @@ prod {
 
 .item{
     border-bottom: 1px solid gray;
-    height: 80px;
+    height: 79px;
+    padding-top: 3px;
 }
 
 .contenedorItem{
@@ -242,15 +252,16 @@ prod {
     padding-left: 10px;
 }
 
-.tituloItem{
-     font-size: 35px;
-}
-.cantidadItem{
-    font-size: 17px;
-}
+.tituloItem{font-size: 27px;}
+.infoItem{width: 100%;}
+.signoCantidad{font-size: 15px;}
+.signoPrecioA{margin-left: 100px;}
+.signoPrecio{font-size: 17px;}
+
 #itemCantidad{
     
 }
+
 .quitarItem{
     width: 15%;
     height: 100%;
@@ -306,3 +317,41 @@ input[type=number] {
 }
 
 
+@media  (max-width: 1494px) {
+    /* For tablets: */
+
+    .contenedorGral{
+        background-color:red;
+        width: 78% !important;
+    }
+    .jumbotron{
+        width: 83%;
+    }
+
+
+    .tituloItem{font-size: 17px;}
+    .infoItem{width: 100%;}
+    .signoCantidad{font-size: 15px;}
+    .signoPrecioA{margin-left: 20px;}
+    .signoPrecio{font-size: 17px;}
+
+    .quitarItem button{
+        width: 30px;
+        height:30px;
+        margin-top: 100%;
+        border-left:   2px solid red;
+        border-right:  2px dashed red;
+        border-bottom: 2px solid #eee;
+        border-top: 5px solid #eee;
+        font-size: 12px;   
+    }
+
+    .item{
+
+        height: 69px;
+        padding-top: 3px;
+    }
+
+
+
+}
