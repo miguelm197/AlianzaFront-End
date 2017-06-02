@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="titulo">Hola!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css" />
+    </head>
+
+    <body>
+        <div class="containter">
+            <h1 >Bienvenido: <a id ="name"></a> <h1>
+                <form class="form_group">
+            <input class="form_control" type="text" onkeyup="completarNombre()" id="inputName"placeholder="ingresar nombre"> <br>
+            <input class="form_control" type="password" id="primera_clave" placeholder="ingresar contrsena"><br>
+            <input class="form_control" type="password" onchange="verificarContrasena()" id="segunda_clave" placeholder="reingrese contrasena">
+            <span id="check" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
+                </form>
+                <button class="btn btn-info">Enviar</button>
+        </div>
+
+        <div class="containter">
+            <img src="http://www.fondosescritoriogratis.net/wp-content/uploads/images/c8/paisajes-4__400x400.jpg" id="foto1">
+            <img src="http://3.bp.blogspot.com/_8L0jLT5RbHk/S1BKSRPnE4I/AAAAAAAABbM/hB6xZg652rc/s400/paisaje-china.jpg" id="foto2">
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <script src="js/funciones.js"> </script> 
