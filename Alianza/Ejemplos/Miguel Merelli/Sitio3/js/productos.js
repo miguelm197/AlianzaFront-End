@@ -127,6 +127,7 @@ function agregarAlCarrito(id) {
     if (lista.indexOf(id) == -1) {
         //si no existe en la lista del carrito
         lista.push(id);
+       
 
         nombre = productos[id].nombre;
         precio = productos[id].precio;
@@ -218,7 +219,7 @@ function agregarAlCarritoVarios(tipo) {
             }
 
             $("#itemCantidad" + idModal).text(1);
-           // quitarItemCarrito(idModal);
+            quitarItemCarrito(idModal);
         }
             $("#totalCarrito").text(total);
     }
