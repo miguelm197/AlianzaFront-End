@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function mostrar(){
+                /*var titulo = "Helloooo!"
+                var arraylett = ["lunes", "martes", "miercoles","jueves","viernes", "sabado", "domingo"];
+                var arraynum = [10,4,56,32,12,1,6,343,64];
+                var porcion = titulo.substring(1,5);
+                var position = titulo.indexOf("!");
+                var diaspegados = arraylett.join(" ");
+                var separadias = diaspegados.split(" ");
+                var dia = "miercoles";
+                var imprimir
+                    switch(dia){
+                        case "lunes":
+                            imprimir= "JAP - .Net";
+                            break;
+                        case "martes":
+                            imprimir= "Front End - Fundamentos Programacion";
+                            break;
+                        case "miercoles":
+                            imprimir= "A dormir hasta tardeee, a componer";
+                            break;
+                        case "jueves":
+                            imprimir= "JAP - .Net, Front End - Fundamentos Web";
+                            break;
+                        case "viernes":
+                            imprimir= "Front End - Fundamentos Programacion";
+                            break;
+                    }
+
+                    /*var linea = "Estos son todos los hash tag:<Hola>y<Mundo>y<Chau>";
+                    var primer = linea.indexOf("<");
+                    var ultimo = linea.lastIndexOf(">");
+                    var hashtags = linea.substring(primer, ultimo+1);
+                    var coll = hashtags.split("<");
+                    var union = coll.join();
+                    console.log(union);
+                    var nomhash;
+                    var pri;
+                    var ulti;
+                    for (var l=0; l < coll.length; l++){
+                        hash= coll[l];
+                        pri= hash.indexOf("<");
+                        ulti= hash.indexOf(">");
+                        nomhash= hash.substring(pri+1,ulti);
+                        console.log(nomhash);
+                    }
+                    var linea = "Estos son todos los hash tag:<Hola>asdfasef<Mundo>adsfasdf<Chau>";
+                    var primer = linea.indexOf("<");
+                    var ultimo = linea.lastIndexOf(">");
+                    var hashtags = linea.substring(primer, ultimo+1);
+                    //console.log("Posicion primer menor-mayor ---->" + primer + " " + ultimo);
+                    //console.log(hashtags)
+
+                    var first = hashtags.indexOf("<");
+                    var last = hashtags.indexOf(">");
+                    var r = 0;
+                    var arreglo = [];
+                    var hash;
+                    while(first != -1){
+                        first = hashtags.indexOf("<");
+                        last = hashtags.indexOf(">");
+                        hash = hashtags.substring(first+1,last);
+                        arreglo.push(hash);
+                        hashtags = hashtags.substr(first, last+1);
+                        r= r + 1;
+                    }
+                    console.log(arreglo);
+                    for (var l=0; l < arreglo.length; l++){
+                        console.log(arreglo[l]);
+                    }
+
+                
+               var texto = "soy global";
+                function probandoAlcance(){
+                    texto = "soy local";
+                    alert(texto);
+                }
+
+                alert(texto);
+                probandoAlcance();
+                alert(texto);
+                
+                    
+                
+                        
+                /*var i = 0 
+                var encontro = false
+
+                while((!encontro) && (i<=arraylett.length));{
+                    if(dia == arraylett[i]){
+                        encontro = true;
+                    }
+                    i= i + 1;
+                }
+
+                if(encontro = true){
+                    console.log("Se encontro el día ---->  " + dia)
+                }  
+
+                /*for (var j= 0; j < arraylett.length; j++){
+                    console.log(arraylett[j]);
+                }*/
+                /*var k = 0
+
+                while(k < arraylett.length){
+                    
+                    if( k %2 == 0){
+                        mayus= arraylett[k].toUpperCase();
+                        console.log(mayus);
+                    }else{
+                        minus= arraylett[k].toLowerCase();
+                        console.log(minus);
+                    }
+                    
+                    k = k + 1
+
+                }
+
+                /*var esta= arraylett.indexOf(dia)
+
+                if(esta == -1){
+                    console.log("No se encontro el dia '" + dia + "' en la lista");
+                }else{
+                    console.log("Se encontro el dia '" + dia + "' en la posicion '" + esta +"'");   
+                }
+
+                /*console.log(imprimir);
+                console.log(titulo);
+                console.log(porcion + "  ---->substring 1,5");
+                console.log(position + " ---->index of '!' ");
+                console.log(diaspegados + " ---->join de  stringlett");
+                console.log(separadias + "  ---->split de diaspegados");*/
+
+
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>
