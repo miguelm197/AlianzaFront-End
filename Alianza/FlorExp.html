@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function mostrar(){
+                var palos = ["espada", "basto", "oro", "copa"];
+                var palo = "";
+                var numero = 0;
+                var cartamuestra = {palo: "oro", numero: 5};
+                var cartaSergio1 = {palo:"oro", numero: 4};
+                var cartaSergio2 = {palo:"basto", numero: 2};
+                var cartaSergio3 = {palo:"basto", numero: 5};
+                var cartaJuan1 = {palo:"oro", numero: 2};
+                var cartaJuan2 = {palo:"espada", numero: 1};
+                var cartaJuan3 = {palo:"copa", numero: 7};
+                var Sergio = {cartaSergio1, cartaSergio2, cartaSergio3};
+                var Juan = {cartaJuan1, cartaJuan2, cartaJuan3};
+                
+                var juego = { j1: Sergio, j2: Juan, muestra: cartamuestra};
+
+                console.log(Sergio);
+                console.log(Juan);
+                
+
+
+
+                }
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Flor! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>
