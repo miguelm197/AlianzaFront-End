@@ -375,8 +375,8 @@ function ejercicio13() {
     var contadorUsadas = 0;
 
     function tomarCarta() {
-        var max = cartas.length - contadorUsadas;
-        var min = 1;
+        var max = cartas.length -1 - contadorUsadas;
+        var min = 0;
         var rnd = parseInt(Math.random() * (max - min) + min);
 
         while (cartas[rnd].usada == true) {
