@@ -1,21 +1,26 @@
 
+//alertifyjs.com/
 
 $(document).ready(function () {
-
-    $(".nav").html(" " +
-        "<nav class='nav navbar-default navbar-fixed-top'>" +
-        "<div class='container'>" +
-        "<ul class='nav nav-tabs nav-justified'>" +
-        "<li><a class='btn' href='index.html'>Inicio</a></li>" +
-        "<li><a class='btn' href='somos.html'>Quiénes somos</a></li>" +
-        " <li><a class='btn' href='vendemos.html'>Qué vendemos?</a></li>" +
-        "  <li><a class='btn' href='contacto.html'>Contacto</a></li>" +
-        " </ul>" +
-        "</div>" +
-        "</nav>"
-    );
+    $(".nav").load("./navbar.html ");
+    $(".modalLog").load("./modalLogin.html ");
 
     cargarProductos();
+
+
+    var TXT_URL = "./cosas/bd_productos.js";
+    $.ajax
+    (
+    	{
+        	url : TXT_URL,
+			dataType: "text",
+			success : function (data) 
+			{
+                alert(data);
+			}
+		}
+	);
+
 });
 
 
@@ -34,7 +39,7 @@ function abrirCarrito() {
 
         carritoAbierto = false;
     } else {
-        var altura = $(window).height() - 100;
+        var altura = $(window).height() - 160;
 
         $(".carrito").animate({ left: "80%" }, 150);
         $(".contenedorGral").animate({ width: "80%" }, 150);
@@ -45,7 +50,7 @@ function abrirCarrito() {
     }
 }
 
-node();
+
 function node() {
 
     var readline = require('readline');
@@ -74,6 +79,18 @@ function node() {
 }
 
 
+
+function logIn(tipo) {
+    if (tipo == "1") {
+        $(".registro").css("display", "none");
+        $(".login").css("display", "block");
+        $(".titulo-login").text("Entrar");
+    } else if (tipo == "2") {
+        $(".registro").css("display", "block");
+        $(".login").css("display", "none");
+        $(".titulo-login").text("Registro");
+    }
+}
 
 
 

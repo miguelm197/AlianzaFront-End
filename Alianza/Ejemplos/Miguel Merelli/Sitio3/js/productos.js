@@ -1,53 +1,3 @@
-var productos = [
-
-    producto0 = {},
-    producto1 = {
-        id: 1,
-        nombre: "Empanadas",
-        preDesc: "CARNE, POLLO O JAMON Y QUESO",
-        desc: "Una empanada es una fina masa de pan, masa quebrada u hojaldre rellena con una preparación salada o dul ce y " +
-        "cocida al horno o frita. El relleno puede incluir carnes rojas o blancas, pescado, verduras o fruta.",
-        precio: 45,
-        stock: 200,
-        rutaImg: "img/1.jpg"
-    },
-
-    producto2 = {
-        id: 2,
-        nombre: "Pan integral",
-        preDesc: "CON HARINA 0000000",
-        desc: "El pan integral, también conocido como pan moreno o pan marrón, está compuesto de harina no refinada (posee más salvado), " +
-        "sal, agua y levadura activa. Se denomina integral al pan que posee una gran cantidad de fibra dietética.",
-        precio: 23,
-        stock: 200,
-        rutaImg: "img/2.jpg"
-    },
-
-    producto3 = {
-        id: 3,
-        nombre: "Galletitas con chispas",
-        preDesc: "CON CHOCOLATE GAROTO",
-        desc: "Una galleta con chispas de chocolate es una galleta que se originó en los Estados Unidos con chispas de chocolate como ingrediente " +
-        "distintivo. La receta tradicional combina una masa a base de mantequilla y azúcar moreno o blanco con chispas de chocolate semi-dulces.",
-        precio: 8,
-        stock: 200,
-        rutaImg: "img/3.jpg"
-    },
-
-    producto4 = {
-        id: 4,
-        nombre: "Medialunas",
-        preDesc: "COMUNES O RELLENAS DE QUESO",
-        desc: "La medialuna es una pieza de bollería hojaldrada de origen austriaco, hecha con masa de hojaldre, levadura, mantequilla o grasa vacuna " +
-        "(en ocasiones se sustituye por margarina). Las hay dulces o saladas.",
-        precio: 18,
-        stock: 200,
-        rutaImg: "img/4.jpg"
-    }
-
-
-]
-
 var id = "";
 var nombre = "";
 var predesc = "";
@@ -57,7 +7,7 @@ var precio = "";
 
 
 function cargarProductos() {
-
+console.log("Productos cargados_________________________________________");
 
     for (var i = 1; i < productos.length; i++) {
 
@@ -66,23 +16,23 @@ function cargarProductos() {
         predesc = productos[i].preDesc;
         desc = productos[i].desc;
         precio = productos[i].precio;
+        img = productos[i].rutaImg;
 
-        console.log("------------------------");
         console.log("id: " + id);
         console.log("nombre: " + nombre);
         console.log("predesc: " + predesc);
         console.log("desc: " + desc);
+        console.log("img: " + img);
         console.log("------------------------");
 
         nuevoProducto();
     }
-
 }
 
 function nuevoProducto() {
 
     var prod = "<div class='prod col-md-3 productoGondola' id='" + id + "'>" +
-        "           <img src='img/" + id + ".jpg' class='img-responsive img-rounded producto empanada' " +
+        "           <img src='" + img + "' class='img-responsive img-rounded producto empanada' " +
         "           alt='Responsive image' data-target='.bs-example-modal-lg' data-toggle='modal' onclick='prodModal(" + id + ")'>" +
         "           <h4>" + nombre + "</h4><br>" +
         "           <h6>" + predesc + "</h6>" +
@@ -249,9 +199,7 @@ function quitarItemCarrito(id) {
 }
 
 
-function calcularTotal() {
-
-}
+function calcularTotal() {}
 
 
 
