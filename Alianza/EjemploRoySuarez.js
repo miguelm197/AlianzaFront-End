@@ -1,6 +1,6 @@
 var Fin= 0
 var Ini= 0
-
+ 
 if (Fin < Ini){
     var Aux = Ini
     Ini = Fin
