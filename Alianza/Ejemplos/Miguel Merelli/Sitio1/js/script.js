@@ -552,6 +552,7 @@ function ejercicio14() {
             { nombre: "Hora de Publicacion", dato: "No encontrado...", encontrado: false },
         ];
 
+
      
         var texto = data.split("Function Draw Table 2");
         var texto2 =  data.split("Function Draw Table 2")[1].split("//");
