@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script src="truco.js"></script>
+    </head>
+
+    <body>
+       
+       
+    </body>
+
+<script>
+
+
+function crearTicketMenu(menu){
+    return function(name){
+        alert("Aqui esta su ticket para el menu " + menu + "/n" + "Bienvenido " + name);
+    }
+
+}
+
+var getEstudiantilTicket = crearTicketMenu("Estudiantil");
+var getJubiladoTicket = crearTicketMenu("Jubilado");
+var getComunTicket = crearTicketMenu("Comun");
+
+getEstudiantilTicket("Laura");
+getJubiladoTicket("Pablo");
+getComunTicket("Adriana");
+
+
+console.log(getEstudiantilTicket);
+
+
+</script>
+</html>
