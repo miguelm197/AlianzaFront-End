@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/fuente.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Notebooks</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Adaptadores</a></li>
+      <li><a href="#">Celulares</a></li>
+      <li><a href="#">Línea blanca</a></li>
+      <li><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></li>
+      <li id="cantidadTotal">0</li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>Notebooks</h2> 
+    <p>Las mejores marcas</p> 
+  </div>
+  <!-- <p>This is some text.</p> 
+  <p>This is another text.</p> -->
+
+
+<div class="container-fluid">
+
+<div class="row">   
+    <div class="col-sm-4" style="background-color: white;"> <!-- Elije productos -->
+        <div class="container">   <!-- Botones de combos -->
+            <img src="Imagenes\notebook-acer-5250-01.jpg" alt="acer-5250-01" style="width:304px;height:228px;">
+
+        </div>
+    </div>
+
+    <div class="col-sm-4" style="background-color:darkgrey; height: 300px;">  <!-- Tipo de Descuento -->
+      <div class="Titulov2"><h2>Notebook Acer Aspire</h2></div>
+      <br>
+      <hd3>Notebook Acer Aspire AO1</hd3><br>
+      <hd3>1.60GHz 32GD</hd3>
+      <br>
+      <br>
+      <p>Los colores disponibles</p>
+      <div style="display: inline-block;">
+          <a class="color_Azul">Azul</a>
+          <a class="color_Rojo">Rojo</a>
+          <a class="color_Verde">Verde</a>
+      </div>
+      <br>
+      <br>
+
+      <div style="display: inline-block;">
+          <button type="button" class="btn btn-success">Lo Quiero!</button>
+
+          <input id="cantCompra" type="number" min=0 width="10px" onclick="sumaCarrito()"></input>
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#masdatos">Más datos</button>
+                <div id="masdatos" class="collapse">
+                Esta notebook es ideal para estudiantes, podrás trabajar con una autonomía de 8 hs. En el hogar o en viaje.
+                </div>
+      </div>
+
+
+     </div>
+
+    <div class="col-sm-4" style="background-color: darkgrey; height: 300px;">  <!-- Tipo de Descuento -->
+            <div class="container">
+            <h2>Mas modelos</h2>
+              <!-- <p>The .dropdown class is used to indicate a dropdown menu.</p> -->
+            <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Vea más !
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Acer</a></li>
+              <li><a href="#">HP</a></li>
+              <li><a href="#">Toshiba</a></li>
+            </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+<ul class="pagination">
+  <li><a href="#">Mas detalles</a></li>
+  <li><a href="#">Garantía</a></li>
+  <li><a href="#">Opiniones</a></li>
+  <li><a href="#">Comparar</a></li>
+</ul>
+
+</div>
+
+</div>
+
+
+
+
+</body>
+
+<script>
+
+function sumaCarrito(){
+
+console.log($("#cantCompra").val());
+
+$("#cantidadTotal").text($("#cantCompra").val());
+
+}
+
+
+</script>
+
+
+</html>
