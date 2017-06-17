@@ -30,7 +30,7 @@ console.log("Productos cargados_________________________________________");
 }
 
 function nuevoProducto() {
-
+    //carga productos en la gondola
     var prod = "<div class='prod col-md-3 productoGondola' id='" + id + "'>" +
         "           <img src='" + img + "' class='img-responsive img-rounded producto empanada' " +
         "           alt='Responsive image' data-target='.bs-example-modal-lg' data-toggle='modal' onclick='prodModal(" + id + ")'>" +
