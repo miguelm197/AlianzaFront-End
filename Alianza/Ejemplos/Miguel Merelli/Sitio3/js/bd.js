@@ -43,5 +43,15 @@ var productos = [
         precio: 150,
         stock: 200,
         rutaImg: "img/4.jpg"
+    },
+
+        producto5 = {
+        id: 5,
+        nombre: "pIZZA",
+        preDesc: "Con Muza",
+        desc: "pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza ",
+        precio: 300,
+        stock: 2,
+        rutaImg: "img/4.jpg"
     }
 ]

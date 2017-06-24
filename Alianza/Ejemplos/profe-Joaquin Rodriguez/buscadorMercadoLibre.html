@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <title>Ejemplo sencillo de AJAX</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+                function realizaProceso() {
+                        var palabra = $("#articulo").val();
+                        console.log('https://api.mercadolibre.com/items/' + palabra)
+                        $.ajax({
+                                type: "GET",
+                                url: 'https://api.mercadolibre.com/items/' + palabra,
+                                success: function (response) {
+                                        console.log(response)
+                                        $("#titulo").text(response.title)
+                                        $("#precio").text("Precio: " + response.price)
+                                        $("#link").text("Link")
+                                        $("#link").attr("href", response.permalink)
+                                        $("#imagen").attr("src", response.thumbnail)
+                                }
+                        });
+                }
+
+        </script>
+
+</head>
+
+<body>
+
+        Introduce valor a buscar
+
+        <input type="text" name="palabra" id="articulo" value="MLU" />
+        <button onclick="realizaProceso()"> BUSCAR </button>
+
+        <h1 id="titulo"></h1> <br>
+        <img id="imagen" src="" width="200px" height="200px"> <br>
+        <span id="precio"></span> <br>
+        <a href="#" id="link" target="_blank"></a>
+
+
+
+</body>
+
+</html>
