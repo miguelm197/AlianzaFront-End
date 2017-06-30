@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function esPieza(muestra, carta){
+            if(muestra.palo == carta.palo){
+                switch(carta.palo){
+                    case 2:
+                        return true;
+                    break;
+                    case 4:
+                        return true;
+                    break;
+                    case 5:
+                        return true;
+                    break;
+                    case 11:
+                        return true;
+                    break;
+                    case 10:
+                        return true;
+                    break;
+                }
+            }
+                return false;
+            }
+            function mismoPalo(carta1, carta2, carta3,muestra){
+                if((carta1.palo == carta2.palo) && (carta2.palo == carta3.palo)){
+                    return true;
+                }
+                if(typeof(muestra) =="undefined"){
+                    return false
+                }else if((carta1.palo == carta2.palo) && (carta1.palo != muestra.palo)){
+                    return true;
+                }else if((carta2.palo == carta3.palo) && (carta2.palo != muestra.palo)){
+                    return true;
+                }else if ((carta3.palo == carta1.palo) && (carta3.palo != muestra.palo)){
+                    return true;
+                }
+
+            }
+            function mostrar(){
+                var mismo1;
+                var mismo2;
+                var cantidad1;
+                var cantidad2;
+                var pieza;
+                var palos = ["espada", "basto", "oro", "copa"];
+                var palo = "";
+                var numero = 0;
+                var cartaComp = {palo:"", numero: 0};
+                var cartaMuestra = {palo: "oro", numero: 5};
+                var cartaSergio1 = {palo:"oro", numero: 4};
+                var cartaSergio2 = {palo:"basto", numero: 2};
+                var cartaSergio3 = {palo:"basto", numero: 5};
+                var cartaJuan1 = {palo:"oro", numero: 2};
+                var cartaJuan2 = {palo:"espada", numero: 1};
+                var cartaJuan3 = {palo:"copa", numero: 7};
+                var Sergio = [cartaSergio1, cartaSergio2, cartaSergio3];
+                var Juan = [cartaJuan1, cartaJuan2, cartaJuan3];
+                var juego = { j1: Sergio, j2: Juan, muestra: cartaMuestra};
+                
+                mismo1 = mismoPalo(cartaSergio1,cartaSergio2,cartaSergio3);
+                mismo2 = mismoPalo(cartaJuan1, cartaJuan2, cartaJuan3);
+
+                for(var i=0;i < 3; i++){
+                    cartaComp = juego.j1[i];
+                    pieza = esPieza(cartaMuestra,cartaComp);
+                    console.log(cartaComp);
+                    console.log(pieza); 
+                    if (pieza){
+                        cantidad1 = cantidad1 + 1;
+                    }
+                }
+                console.log(cantidad1); 
+
+                if((cantidad1 >= 2) || mismo1){
+                    console.log('Sergio tiene flor');
+                    }else if(cantidad1 == 1){
+                        mismo1 = mismoPalo(cartaSergio1,cartaSergio2,cartaSergio3,cartaMuestra);
+                        if(mismo1){
+                            console.log('Sergio tiene flor');
+                        }
+                }
+                if((cantidad2 >= 2) || mismo2){
+                    console.log('Juan tiene flor');
+                }else if(cantidad2 == 1){
+                    mismo2 = mismoPalo(cartaJuan1, cartaJuan2, cartaJuan3, cartaMuestra);
+                    if(mismo2){
+                       console.log('Juan tiene flor'); 
+                    }
+                }    
+                
+                
+
+
+            }
+            
+            
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Flor! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>
