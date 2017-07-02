@@ -531,10 +531,11 @@ function ejercicio13() {
 
 
 }
-ejercicio14();
+
 function ejercicio14() {
     console.log("\n\n\n\n >>> BUSQUEDA AVANZADA <<<\n");
 
+    util = require('util');
     fs = require('fs');
 
     fs.readFile('../datos/datos1.txt', 'utf-8', leerDatos);
@@ -553,9 +554,9 @@ function ejercicio14() {
         ];
 
 
-     
+
         var texto = data.split("Function Draw Table 2");
-        var texto2 =  data.split("Function Draw Table 2")[1].split("//");
+        var texto2 = data.split("Function Draw Table 2")[1].split("//");
         for (var i = 0; i < texto2.length; i++) {
             for (var j = 0; j < busquedas.length; j++) {
                 if ((texto2[i].indexOf("'" + busquedas[j].nombre + "") != -1) && (busquedas[j].encontrado == false)) {
@@ -578,17 +579,222 @@ function ejercicio14() {
             console.log("---------------------------");
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
+}
+
+
+
+function ejercicio15() {
+    console.log("\n\n\n\n >>> FUNCION MAP <<<\n");
+
+    var numeros = [1, 2, 3, 4, 10];
+    var resultado = numeros.map(function (num) { return num * num });
+    console.log(resultado);
+
+
+    var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+    var vocales = ["a", "e", "i", "o", "u"];
+    console.log(dias);
+
+    console.log("\n\n")
+    var resul = dias.map(function (dia) {
+        var cont = 0;
+        /*for (var i = 0; i < dia.length; i++) {
+            for (var j = 0; j < vocales.length; j++) {
+                if (dia[i] == vocales[j]) {
+                    cont = cont + 1;
+                }
+            }
+        }*/
+        var content = dia.split("");
+        var conten = content.map(function (letra) {
+            for (var i = 0; i < vocales.length; i++) {
+                if (letra == vocales[i]) {
+                    cont++;
+                }
+            }
+        });
+        return cont;
+    });
+
+    console.log("cantidad de vocales por dia: ");
+    for (var k = 0; k < resul.length; k++) {
+        console.log("   Vocales en    " + dias[k] + ": " + resul[k])
+    }
+}
+
+
+function ejercicio16() {
+    var Persona = function (nombre, apellido, edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+    }
+
+    var yo = new Persona("Miguel", "Merelli", "20");
+    var tu = new Persona("Claudia", "Merelli", "20");
+    delete yo.nombre
+    console.log(yo);
+}
+
+
+function ejercicio17() {
+    var librosA = [];
+
+    console.log(librosA);
+    function nuevoLibro(nombre, autor, array) {
+
+        var libro = new Object();
+        libro.nombre = nombre;
+        libro.autor = autor;
+
+        array.push(libro);
+    }
+
+    nuevoLibro("hola", "miguel", librosA);
+    console.log(librosA[0]);
+    /*
+    
+        function libro(autor,titulo,precio){
+            this.autor=autor;
+            this.titulo=titulo;
+            this.precio=precio;
+        }
+        var libros = [];
+    
+        function agregarNuevo(autor,titulo,precio,array){
+            var librito = new libro(autor,titulo,precio);
+            array.push(librito);
+        }
+        agregarNuevo("Covey","los 7 hábitos de las personas", 500, libros);
+        console.log(libros);
+    */
+}
+
+
+
+
+
+function ejercicio18() {
+    console.log("\n\n\n\n >>> OBJETOS <<<\n");
+
+    //dirección del servidor
+    var urlServer = "http://127.0.0.1:8887/";
+    var archivoEstudiantes = "/Sitio1/datos/estudiantes.txt";
+    var archivoProfesores = "/Sitio1/datos/profesores.txt"
+
+    var listaEstudiantes = [];
+    var listaProfesores = [];
+
+    function creadorDeObjetos(pFile, col) {
+        var pURL = urlServer + pFile;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status == 200) {
+                        texto(xmlhttp.responseText, col);
+                    }
+                }
+            };
+            xmlhttp.open("GET", pURL, true);
+            xmlhttp.send(null);
+        }
+    }
+
+    function consObject(cabezera, ccv) {
+        var valores = ccv.split(",");
+        var cab = cabezera.split(",");
+        var objeto = new Object();
+        for (var i = 0; i < cab.length; i++) {
+            objeto[cab[i]] = valores[i];
+        }
+        return objeto;
+    }
+
+
+    function texto(texto, col) {
+        var lineas = texto.split("\n");
+        var cabezera = lineas[0];
+        for (var i = 1; i < lineas.length; i++) {
+            col.push(consObject(cabezera, lineas[i]));
+        }
+    }
+
+    creadorDeObjetos(archivoEstudiantes, listaEstudiantes);
+    creadorDeObjetos(archivoProfesores, listaProfesores);
+
+
+
+    /*
+    
+    
+            function NuevoEstudiante(nombre, apellido, ci, fechaNacimiento, mail, celular, gustos) {
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.fechaNacimiento = fechaNacimiento;
+                this.mail = mail;
+                this.celular = celular;
+                this.gustos = gustos;
+            }
+        
+        
+            function NuevoCurso(nombre, salon, fechaInicio, fechaFin) {
+                this.nombre = nombre;
+                this.salon = salon;
+                this.fechaInicio = fechaInicio;
+                this.fechaFin = fechaFin;
+                this.estudiantes = estudiantes;
+                this.materias = materias;
+            }
+        
+        
+            function NuevaMateria(nombre, horario) {
+                this.nombre = nombre;
+                this.horario = horario;
+                this.profesores = profesores;
+            }
+        
+        
+            function NuevoProfesor(nombre, apellido, ci, fechaNacimiento, mail, celular, profesion) {
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.ci = ci;
+                this.fechaNacimiento = fechaNacimiento;
+                this.mail = mail;
+                this.celular = celular;
+                this.profesion = profesion;
+            }
+        
+        
+            function Inscripcion(estudiante, curso, nota, fecha){
+                this.estudiante = estudiante;
+                this.curso = curso;
+                this.nota = nota;
+                this.fecha_inscripcion = fecha;
+            }
+    
+            var Miguel = NuevoEstudiante("Miguel","Merelli", 51641764, "18/04/1997", "miguel@fx2.com.uy", 095647545,"chocolate");
+            var Jorge = NuevoEstudiante("Jorge","Zapallo", 12345678, "18/04/1997", "miguel@fx2.com.uy", 095647545,"chocolate");
+    
+    
+            var Mauricio = NuevoProfesor("Mauricio", "Rodriguez", "12345666", "12/12/2012", "mauri@gmail.com","095666666", "profesor");
+            var Joaquin = NuevoProfesor("Joaquin", "Martinez", "12345666", "12/12/2012", "mauri@gmail.com","095666666", "profesor");
+    
+    
+            var FrontEnd = NuevoCurso("Front-End",4,"5/4/2017","5/2/2018");
+            var OtroCurso = NuevoCurso("Otro Curso",4,"5/4/2017","5/2/2018");
+    
+            var Matematica = NuevaMateria("Matemáticas", "12:00 a 18:00");
+            var Literatura = NuevaMateria("Literatura", "18:00 a 24:00");
+    
+            var Inscripcion1 = Inscripcion(Miguel, FrontEnd, 200, "1/4/2017")
+    
+        
+    
+    console.log(Miguel);
+    console.log(FrontEnd);
+    console.log(Inscripcion1);
+    */
+
 }

@@ -7,19 +7,40 @@
                 var palos = ["espada", "basto", "oro", "copa"];
                 var palo = "";
                 var numero = 0;
+                var cartamuestra = {palo: "espada", numero: 5};
+                var carta1 = {palo:"", numero: 0};
+                var carta2 = {palo:"", numero: 0};
+                var carta3 = {palo:"", numero: 0};
+                var manoJ1= [carta1, carta2, carta3];
+                var manoJ2= [carta1, carta2, carta3];
+                
+                var aux = 0;
+                
                 for(i=0; i < 3; i++){
                     palo= palos[Math.floor(Math.random()* palos.length)];
                     do{
                     numero = Math.floor((Math.random() * 12) + 1);
-                    }while((numero = 8)||(numero=9))
-                    manoJ1[i]= carta.numero= 
+                    }while((numero == 8)||(numero == 9))
+
+                    manoJ1[i].palo = palo;
+                    manoJ1[i].numero = numero; 
                 }
-                console.log(palo)
-                var carta = {palo: "espada", numero: 5};
-                var cartamuestra;
-                var manoJ1= [carta1, carta2, carta3];
-                var manoJ2= [carta1, carta2, carta3];
+
+                for(i=0; i < 3; i++){
+                    palo= palos[Math.floor(Math.random()* palos.length)];
+                    do{
+                    numero = Math.floor((Math.random() * 12) + 1);
+                    }while((numero == 8)||(numero == 9))
+
+                    manoJ2[i].palo = palo;
+                    manoJ2[i].numero = numero; 
+                }
+
                 var juego = { j1: manoJ1, j2: manoJ2, muestra: cartamuestra};
+
+                console.log(manoJ1);
+                console.log(manoJ2);
+                
 
 
 
