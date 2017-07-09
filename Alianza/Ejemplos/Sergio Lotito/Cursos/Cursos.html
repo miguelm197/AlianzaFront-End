@@ -20,7 +20,7 @@ estudiante = new Estudiante(4,"Miguel","Diaz","3071893-5","11/03/1985","09991349
 estudiantes.push(estudiante);
 estudiante = new Estudiante(5,"Roy","Suarez","3071893-5","24/03/1985","099913495");
 estudiantes.push(estudiante);
-//console.log(estudiantes);
+console.log(estudiantes);
 
 var materia = new Materia(1,"Programación 1"," Lunes a Viernes 18 a 20 hs",profesores[0]);
 materias.push(materia);
@@ -47,7 +47,43 @@ profesores.push(profesor);
 profesor = new Profesor(1,"Maria","Dies","2250510-2","Jubilado","099913494","cperez@noexiste.com");
 profesores.push(profesor);
 
+function Personaje(nombre,apellido){
+    this.nombre=nombre;
+    this.apellido=apellido;
+}
 
+var jj = new Personaje("Jota","Ele");
+console.log(jj);
+var mostrar1 = estudiante.nomape.apply(jj);
+console.log(mostrar1);
+
+var jja = ["Jota","Ele"];
+console.log(jja);
+var mostrar2 = estudiante.nomape.apply(jja);
+console.log(mostrar2);
+
+var array = ["fin","chau"];
+//var mostrar3 = estudiante.nomape.call(jj,...array);    // identico con la de abajo
+//var mostrar3 = estudiante.nomape.call(jj,"fin","chau");    // identico con la de abajo
+var mostrar3 = estudiante.nomape.apply(jj,array);
+console.log(mostrar3);
+
+
+/*
+var params = ["Manuel", "Vargas", "22"];
+var manuel = new Persona(); 
+Estudiante.prototype = new Persona();
+Estudiante.prototype.constructor = Estudiante();
+function Estudiante(id,nombre,apellido,ci,fechaNac,celular){
+    var b= Math.max(5,3,8);
+
+
+}
+var cac = Persona.apply(Estudiante,[nombre,apellido,ci]);
+console.log(cac);
+*/
+
+//console.log(Estudiante);
 
 
 //console.log(cursos[0]);

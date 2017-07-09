@@ -30,6 +30,8 @@ for (var iele=0; iele < diaSem.length; iele++){
 
     for (var istr=0; istr < diaSem[iele].length; istr++){
 
+        console.log(cletras[istr]);
+        //console.log(diaSem[iele][istr]);
         cantLetras[diaSem[iele][istr]]++;
 
         if ((diaSem[iele][istr] == "a") || (diaSem[iele][istr] =="e") || (diaSem[iele][istr] == "i") || (diaSem[iele][istr] =="o") || (diaSem[iele][istr] =="u")){

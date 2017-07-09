@@ -22,6 +22,7 @@ function Estudiante(id,nombre,apellido,ci,fechaNac,celular){
     this.ci=ci;
     this.fechaNac=fechaNac;
     this.celular=celular;
+    this.nomape= function(tercer,cuarto){ return nombre+" "+apellido+" "+tercer+" "+cuarto};
 }
 
 function Profesor(id,nombre,apellido,ci,profesion,celular,mail){
@@ -41,6 +42,14 @@ function Inscripcion(nota,fechaInscripcion,estudiante,curso){
     this.curso=curso;
 }
 
+function Persona(nombre,apellido,edad){
+    this.nombre=nombre;
+    this.apellido=apellido;
+    this.edad=edad;
+}
+
+
+
 var cursos= [];
 var estudiantes= [];
 var profesores = [];
@@ -51,12 +60,12 @@ var alianza = [cursos, estudiantes, profesores, materias, inscripciones];
 console.log(alianza);
 
 
-
+/*
 
 var fs = require('fs');  // filesystem
 
 const util = require('util');
-/*
+
 
 function Estudiante(nombre,apellido,ci,fechaNac,celular,gustos,curso){
     this.nombre=nombre;
