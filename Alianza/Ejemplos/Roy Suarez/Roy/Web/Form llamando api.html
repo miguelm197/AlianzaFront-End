@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head> <meta charset = "UTF-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css"/>		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<title>Usuarios</title>
+	<head>
+	<body>
+        <div class="container" style="padding-top: 90px;">
+            <div id="magia" class="row">
+                <div class="col-md-4 col-md-offset-4">
+                <h1>Agregar Usuario</h1>
+                <form action="http://smarttravel.io/usuarios.php" method="post">
+                    <div class="form-group">
+						<input id="name" type="email" name="email" class="form-control" id="Contactmail" placeholder="Ingresar Email">
+					</div>
+                    <div class="form-group">
+                        <input type="password" name="clave" class="form-control" id="Contactname" placeholder="Ingresar Password">
+                    </div>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label><input type="radio" name="sexo" value="M">Masculino</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="sexo" value="F">Femenino</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="hidden" name="pago" value="0">
+                            <label><input type="checkbox" name="pago" value="1">Premium</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type ="hidden" name="admin" value="2">
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit"/>
+                    </div>
+                </form>
+                </div>
+            </div>
+	</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+
+/*fs = require('fs');
+console.log('Hola soy un ejemplo')
+fs.readFile('estudiantes.csv', 'utf-8', leerDatos);
+
+            function leerDatos(error, data) {
+            if (error)
+                return console.log(error);
+                
+            console.log('data:', data);
+            console.log('error:', error);
+            }*/
+
+            function Profesor(nombre,apellido, ci, fechaNac, mail, celular, profesion){
+                    this.nombre = nombre;
+                    this.apellido = apellido;
+                    this.ci = ci;
+                    this.fechaNac = fechaNac;
+                    this.mail = mail;
+                    this.celular = celular;
+                    this.profesion = profesion;
+            }
+
+            function Estudiante(nombre,apellido, ci, fechaNac, mail, celular, gustos){
+                    this.nombre = nombre;
+                    this.apellido = apellido;
+                    this.ci = ci;
+                    this.fechaNac = fechaNac;
+                    this.mail = mail;
+                    this.celular = celular;
+                    this.gustos = gustos;
+                    /*this.getNombr= function (){   
+                       return this.nombre;
+                    }*/
+                    this.getnombreCompleto= function(tercer,cuarto){
+                        return this.nombre + " " + this.apellido + tercer + cuarto;
+                    }
+            }
+
+            function Personaje (nombre, apellido){
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+
+            function Materia(nombre, horario, profesor){
+                    this.nombre = nombre;
+                    this.horario = horario;
+                    this.curso = curso;
+                    this.profesor = profesor;
+            }
+
+            function Curso(nombre, salon, fechaIni, fechaFin, materias){
+                    this.nombre = nombre;
+                    this.salon = salon;
+                    this.fechaIni = fechaIni;
+                    this.fechaFin = fechaFin;
+                    this.materias = materias;
+            }
+
+            function Inscripcion(estudiante, curso, nota, fechaIns){
+                    this.estudiante = estudiante;
+                    this.curso = curso;
+                    this.nota = nota;
+                    this.fechaIns = fechaIns;
+            }
+
+            
+
+            function mostrar(){
+                var jj = new Personaje("Jota", "Jota");
+                var profesor1 = new Profesor("Walter","White","4234234-0","07/03/56", "w.w-chemestry@highschool.com",094123432,"Profesor de Quimica");
+                var estudiante1 = new Estudiante("Jesse", "Pinkman","5123119-4", "27/08/79", "jessepink79@hotmail.com", 091432543,"Videojuegos");
+                var estudiante2 = new Estudiante("Walter Jr.", "White","5923319-1", "10/06/85", "wjw85@hotmail.com", 0919123655,"Salir con amigos");
+                var arrayestudiantes = [estudiante1, estudiante2];
+                var curso1 = new Curso("Quimica 2", 303, "20/04/17", "18/12/17", arrayestudiantes);
+                //console.log(estudiante1);
+                var array = [" fin, ","chau."];
+                var mostrar = estudiante1.getnombreCompleto.apply(estudiante1, array);
+                console.log("mostrar= " + mostrar);
+
+                console.log("---------------> " + estudiante1.constructor.name);
+
+                var params = ["Roy", "Suarez", 23, "Demacia", "a ver", "a ver", "a ver", "a ver"];
+                var roy = new Estudiante(...params);
+                var strini = "<div style='font-size:1.0cm'><strong>"+ estudiante1.constructor.name +"</strong>";
+                var props  = estudiante1;
+                var attrs = Object.keys(props);
+                var vls = Object.values(props);
+                
+
+                for( var i = 0; i < attrs.length; i++) {
+                    var attribute = attrs[i];
+                    var value = props[attribute];
+                    strini = strini +"<br>"+attribute+": "+value;
+                    //console.log(attribute + ": " + value); 
+                }
+                var strfin = "</div>";
+                strini = strini + strfin;
+
+                document.getElementById("traer").innerHTML = strini;
+
+
+            }
+           
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+        <div id= "traer">
+        </div>
+        <div id="boost">
+        </div>
+            
+        
+    <body>
+</html>

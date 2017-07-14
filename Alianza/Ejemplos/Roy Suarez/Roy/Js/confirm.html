@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function crearTicketMenu(menu){
+                return function (name){
+                    alert ("Aqui esta su ticket para el menu " + menu + " " + "Bienvenido " + name);
+                }
+            }
+
+            function mostrar(){
+                //var tof = confirm("Seguro que esto es un confirm?");
+                //console.log(tof);
+                //var entrada = prompt("Ingresar Valor"); 
+                //console.log(typeof(entrada));
+                /*var saludo;
+                var clase = 9;
+
+                if(clase<10){
+                    saludo= function(){
+                        return "Hola como estan?";
+                    };
+                }else{
+                    saludo = function(){
+                        return"Buenas como anda la genchi?";
+                };
+            }
+                saludo();
+            }
+            function probandoClosure(){
+                var x=10;
+                function closeX(){
+                    return x;
+                }
+                return closeX;
+            }
+            var check = probandoClosure();
+            check();*/
+            var getEstudialtilTicket = crearTicketMenu("Estudiantil");
+            var getJubiladoTicket = crearTicketMenu("Jubilado");
+            var getComunTicket = crearTicketMenu("Comun");
+
+            getEstudialtilTicket("Laura");
+            getEstudialtilTicket("Pablo");
+            getEstudialtilTicket("Adriana");
+
+        }
+         
+        
+        
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>

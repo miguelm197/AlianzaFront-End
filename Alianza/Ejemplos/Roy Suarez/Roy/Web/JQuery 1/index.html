@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="titulo">Holaa!</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+<body>
+    <div class="container">
+        <h1>Bienvenido: <a id="name"></a> </h1>
+        <form class="form_group">
+            <input type="text" onkeyup="NombreIngresado()" id="nameishere" placeholder= "Ingresar Nombre"><br>
+            <input type="password" id="pass1" placeholder= "Ingrese Contraseña" onchange="asegurarViveza()"><br>
+            <input type="password" id="pass2" placeholder= "Reingrese Contraseña" onchange="verificarContrasena()">
+            <i id="check" class="fa fa-check" aria-hidden="true" style="color:green"></i>
+            <i id="cross" class="fa fa-times" aria-hidden="true" style="color:red"></i>
+            <br>
+            <button type="button" class="btn btn-success">Ingresar</button>
+        <form>
+    </div>
+    <div onclick="cambioFoto()">
+        <img id="foto1" src="Dead1.jpg" onclick="cambioFoto2()" />  
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/funciones.js"></script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript">
+
+
+            function Mamifero(nombre){
+                this.nombre = nombre;
+            }
+
+            function Musico(nombre, apellido, genero){
+                this.nombre= nombre;
+                this.apellido = apellido;
+                this.genero = genero;
+            }
+
+            Musico.prototype.toString = function(){
+                return this.nombre + " " + this.apellido + " Genero: " + this.genero;
+            }
+
+            Autor.prototype = new Musico();
+            Autor.prototype.constructor = Autor;
+            Autor.prototype.parent = Musico.prototype;
+
+            Interprete.prototype = new Musico();
+            Interprete.prototype.constructor = Interprete;
+            Interprete.prototype.parent = Musico.prototype;
+
+            function Autor(nombre, apellido, genero, numsocio){
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.genero = genero;
+                this.numsocio = numsocio;
+            }
+
+            function Interprete(nombre, apellido, genero, instrumento){
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.genero = genero;
+                this.instrumento = instrumento;
+            }
+
+            var Autor1 = new Autor("Federico", "Graña", "Independiente", "9840");
+            var Interprete1 = new Interprete("Jonatan", "Bentancour", "Rock", "Guitarra");
+
+            xAutor.prototype.toString= function(){
+                return "--> [" + this.parent.toString.call(this) + "]";
+            }
+
+          
+           Interprete.prototype.toString= function(){
+                return "--> [" + this.parent.toString.call(this) + "]";
+            }
+
+
+            console.log(Autor1.toString());
+            console.log(Interprete1.toString());
+
+            //console.log(Interprete1);
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>

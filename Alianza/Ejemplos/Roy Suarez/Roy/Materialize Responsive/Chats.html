@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> Noticias </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        
+        
+          <script type= "text/javascript">
+            $(document).ready(function(){
+              $("#menu").load("Menu.html")
+            });
+	
+            $(document).ready(function(){
+                 $.ajax({
+                    url: 'https://randomuser.me/api/?results=20 ',
+                    dataType: 'json',
+                    success: function(data) {
+                        data.results.forEach(function(randomuser){
+                            var html = `<li class="collection-item avatar">
+                                          <img src="`+ randomuser.picture.large + `" alt="" class="circle">
+                                          <span class="title"><b>`+ randomuser.name.first + ` ` + randomuser.name.last + `</b></span>
+                                          <p>`+ randomuser.email +`<br>` + randomuser.cell + `
+                                          </p>
+                                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                        </li>`
+                            $(".collection").append(html)
+                      })
+                    }
+                 })
+              })
+        </script>
+    </head>
+    <body>
+      <div id="menu">
+      </div>  
+        <ul class="collection">
+        
+        </ul>
+      
+        
+    <body>
+    
+</html>

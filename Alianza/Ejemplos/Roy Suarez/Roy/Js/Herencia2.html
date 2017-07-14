@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript">
+
+
+            function Mamifero(nombre){
+                this.nombre = nombre;
+            }
+
+            Mamifero.prototype.toString = function(){
+                return this.nombre;  
+            }
+            
+            Gato.prototype = new Mamifero();
+            Gato.prototype.constructor=Gato;
+            Gato.prototype.parent = Mamifero.prototype;
+    
+            Perro.prototype = new Mamifero();
+            Perro.prototype.constructor=Perro;
+            
+            function Gato(color,nombre){
+                this.color=color;
+                this.nombre=nombre;
+            }
+
+            Perro.prototype.toString=function(){
+                return "[Perro "+this.raza+ " " + this.nombre+"]";
+            }
+
+            Gato.prototype.toString=function(){
+                return "[Gato "+this.color+ " " + this.parent.toString.call(this)+"]";
+            }
+
+            function Perro(raza,nombre){
+                this.raza=raza;
+                this.nombre=nombre;
+            }
+            
+
+            var miGato = new Gato("Gris", "Nacho");
+            var miPerro = new Perro("Cualquiera", "Tupa");
+
+            console.log(miGato.toString());
+            console.log(miGato.parent);
+            //console.log(miPerro.toString());
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>
