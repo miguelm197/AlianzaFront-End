@@ -1,4 +1,6 @@
 function ejercicio1() {
+
+
     //TODOS LOS MULTIPLOS DE N QUE ESTËN ENTRE A Y B
     console.log("\n\n\n\n >>> TODOS LOS MULTIPLOS DE N QUE ESTËN ENTRE A Y B <<<")
 
@@ -42,8 +44,6 @@ function ejercicio1() {
     //$("#id").text("Hola Mundo"); 
     //Escribe "Hola Mundo" dentro del elemento con la id "#id"
 }
-
-
 function ejercicio2() {
     //MAYOR Y MENOR
     console.log("\n\n\n\n >>> MAYOR Y MENOR <<<")
@@ -86,8 +86,6 @@ function ejercicio2() {
     //$("#id").text("Hola Mundo"); 
     //Escribe "Hola Mundo" dentro del elemento con la id "#id"
 }
-
-
 function ejercicio3() {
     // GRAFICA
     console.log("\n\n\n\n >>> GRAFICA <<<");
@@ -115,8 +113,6 @@ function ejercicio3() {
     console.log(resultado);
     alert(resultado);
 }
-
-
 function ejercicio4() {
     //APROBADO / NO APROBADO
     console.log("\n\n\n\n >>> APROBADO / NO APROBADO <<<");
@@ -149,8 +145,6 @@ function ejercicio5(inicio, fin) {
     console.log(resultado);
     alert(resultado);
 }
-
-
 function ejercicio6() {
 
     //EJEMPLO DE SWITCH
@@ -225,8 +219,6 @@ function ejercicio6() {
     } while (!verificador);
 
 }
-
-
 function ejercicio7() {
     //COMIDA RAPIDA
 
@@ -239,8 +231,6 @@ function ejercicio7() {
 
 
 }
-
-
 function ejercicio8() {
     //HASHTAG
     var linea = "Estos son todos los hashtag:<Hola>y<Mundo>y<Chau>";
@@ -264,8 +254,6 @@ function ejercicio8() {
     }
     alert("Linea: '" + linea + "'" + "\nNuevaLinea: '" + lineafin + "'");
 }
-
-
 function ejercicio9() {
     //HASHTAG 2
 
@@ -281,8 +269,6 @@ function ejercicio9() {
     }
     alert("Linea: " + linea + "\n Linea2: " + linea2);
 }
-
-
 function ejercicio10() {
     //HASHTAG 3
     var linea = "Estos son todos los hashtag:<Hola>yrtasfask<fasifuahsifu h <sape>sadasfas   <Mundo>ytttttttttttttt<Chau>";
@@ -298,8 +284,6 @@ function ejercicio10() {
     }
     alert(lineaFinal);
 }
-
-
 function ejercicio11() {
     //HASHTAG 3
     var linea = "<hola>xy<<mundo>xy><rtx<chau>0";
@@ -319,8 +303,6 @@ function ejercicio11() {
         }
     }
 }
-
-
 function ejercicio12() {
     var labcedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "x", "y", "z"];
     var lvocales = ["a", "e", "i", "o", "u"];
@@ -354,7 +336,6 @@ function ejercicio12() {
     }
 
 }
-
 function ejercicio132() {
     var b = prompt('Ingrese el número B del 1 al 1000:', '');
     console.log(typeof (b))
@@ -514,8 +495,6 @@ function ejercicio132() {
         console.log("Juan: " + esFlor(res, Juan));
     }
 }
-
-
 function ejercicio13() {
 
     var saludo = function () {
@@ -531,7 +510,6 @@ function ejercicio13() {
 
 
 }
-
 function ejercicio14() {
     console.log("\n\n\n\n >>> BUSQUEDA AVANZADA <<<\n");
 
@@ -581,9 +559,6 @@ function ejercicio14() {
 
     }
 }
-
-
-
 function ejercicio15() {
     console.log("\n\n\n\n >>> FUNCION MAP <<<\n");
 
@@ -622,8 +597,6 @@ function ejercicio15() {
         console.log("   Vocales en    " + dias[k] + ": " + resul[k])
     }
 }
-
-
 function ejercicio16() {
     var Persona = function (nombre, apellido, edad) {
         this.nombre = nombre;
@@ -636,8 +609,6 @@ function ejercicio16() {
     delete yo.nombre
     console.log(yo);
 }
-
-
 function ejercicio17() {
     var librosA = [];
 
@@ -654,7 +625,6 @@ function ejercicio17() {
     nuevoLibro("hola", "miguel", librosA);
     console.log(librosA[0]);
     /*
-    
         function libro(autor,titulo,precio){
             this.autor=autor;
             this.titulo=titulo;
@@ -670,131 +640,162 @@ function ejercicio17() {
         console.log(libros);
     */
 }
-
-
-
-
-
 function ejercicio18() {
     console.log("\n\n\n\n >>> OBJETOS <<<\n");
 
     //dirección del servidor
     var urlServer = "http://127.0.0.1:8887/";
-    var archivoEstudiantes = "/Sitio1/datos/estudiantes.txt";
-    var archivoProfesores = "/Sitio1/datos/profesores.txt"
+    var archivoAlquileres = urlServer + "/Sitio1/datos/alquileres.csv";
+    var archivoArrendatarios = urlServer + "/Sitio1/datos/arrendatarios.csv";
+    var archivoInmuebles = urlServer + "/Sitio1/datos/inmuebles.csv";
+    var archivoPropietarios = urlServer + "/Sitio1/datos/propietarios.csv";
 
-    var listaEstudiantes = [];
-    var listaProfesores = [];
+    var alquileres = [];
+    var arrendatarios = [];
+    var inmuebles = [];
+    var propietarios = [];
 
-    function creadorDeObjetos(pFile, col) {
-        var pURL = urlServer + pFile;
-        if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4) {
-                    if (xmlhttp.status == 200) {
-                        texto(xmlhttp.responseText, col);
+    function LeerArchivo(url, col, separador, NOMBRE) {
+        
+        $.ajax({
+            url: url,
+            dataType: "text",
+            success: function (data) {
+                console.log("\n\n\n" + NOMBRE + "\n__________________________________________________");
+                // console.log(data);
+                var lineas = data.split("\n");
+                var cabezera = lineas[0];
+                //console.log("CABEZERA: " + cabezera)
+                for (var i = 1; i < lineas.length; i++) {
+                    // console.log("LINEA: " + lineas[i]);
+                    var valores = lineas[i].split(";");
+                    var cab = cabezera.split(";");
+                    var objeto = new Object();
+                    for (var j = 0; j < cab.length; j++) {
+                        objeto[cab[j]] = valores[j];
                     }
+                    col.push(objeto);
                 }
-            };
-            xmlhttp.open("GET", pURL, true);
-            xmlhttp.send(null);
-        }
+
+                for (var k = 0; k < col.length; k++) {
+                    var attrs = Object.keys(col[k]);
+                    var vals = Object.values(col[k]);
+                    for (var l = 0; l < attrs.length; l++) {
+                        console.log(attrs[l] + ": " + vals[l]);
+                    }
+                    console.log("------------------------");
+                }
+            }
+        });
     }
 
-    function consObject(cabezera, ccv) {
-        var valores = ccv.split(",");
-        var cab = cabezera.split(",");
-        var objeto = new Object();
-        for (var i = 0; i < cab.length; i++) {
-            objeto[cab[i]] = valores[i];
-        }
-        return objeto;
+    LeerArchivo(archivoAlquileres, alquileres, ";", "ALQUILERES");
+    LeerArchivo(archivoArrendatarios, arrendatarios, ";", "ARRENDATARIOS");
+    LeerArchivo(archivoInmuebles, inmuebles, ";", "INMUEBLES");
+    LeerArchivo(archivoPropietarios, propietarios, ";", "PROPIETARIOS");
+}
+function ejercicio19() {
+
+    function Persona(nombre, apellido, mail) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.mail = mail;
+    }
+
+    function Estudiante(gusto) {
+        this.gusto = gusto;
+    }
+
+    var params = ["Manuel", "Vargas", "Manuel@gmail.com"];
+
+    //var manuel = new Persona(...params);
+    Estudiante.prototype = new Persona();
+    Estudiante.prototype.constructor = Estudiante(...params);
+
+    var manuel = new Estudiante("Helado")
+    var attrs = Object.keys(manuel); //devuelve un array con las propiedades(string) del objeto que le pasamos por parametro
+    // console.log(attrs);
+
+    var vals = Object.values(manuel); //devuelve un array con las propiedades(string) del objeto que le pasamos por parametro
+    //console.log(vals);
+
+
+    var ini = "<div><strong> " + vals[0] + " </strong>";
+
+
+    console.log(vals[0]);
+    for (var i = 0; i < attrs.length; i++) {
+        console.log(attrs[i] + ": " + manuel[attrs[i]]);
+        ini = ini + "<br>" + attrs[i] + ": " + manuel[attrs[i]];
     }
 
 
-    function texto(texto, col) {
-        var lineas = texto.split("\n");
-        var cabezera = lineas[0];
-        for (var i = 1; i < lineas.length; i++) {
-            col.push(consObject(cabezera, lineas[i]));
-        }
-    }
-
-    creadorDeObjetos(archivoEstudiantes, listaEstudiantes);
-    creadorDeObjetos(archivoProfesores, listaProfesores);
 
 
+    ini = ini + "</div>"
+    // console.log(ini)
+    // $("#textoEj19").html(ini);
+    document.getElementById("textoEj19").innerHTML = ini;
 
-    /*
-    
-    
-            function NuevoEstudiante(nombre, apellido, ci, fechaNacimiento, mail, celular, gustos) {
-                this.nombre = nombre;
-                this.apellido = apellido;
-                this.fechaNacimiento = fechaNacimiento;
-                this.mail = mail;
-                this.celular = celular;
-                this.gustos = gustos;
-            }
-        
-        
-            function NuevoCurso(nombre, salon, fechaInicio, fechaFin) {
-                this.nombre = nombre;
-                this.salon = salon;
-                this.fechaInicio = fechaInicio;
-                this.fechaFin = fechaFin;
-                this.estudiantes = estudiantes;
-                this.materias = materias;
-            }
-        
-        
-            function NuevaMateria(nombre, horario) {
-                this.nombre = nombre;
-                this.horario = horario;
-                this.profesores = profesores;
-            }
-        
-        
-            function NuevoProfesor(nombre, apellido, ci, fechaNacimiento, mail, celular, profesion) {
-                this.nombre = nombre;
-                this.apellido = apellido;
-                this.ci = ci;
-                this.fechaNacimiento = fechaNacimiento;
-                this.mail = mail;
-                this.celular = celular;
-                this.profesion = profesion;
-            }
-        
-        
-            function Inscripcion(estudiante, curso, nota, fecha){
-                this.estudiante = estudiante;
-                this.curso = curso;
-                this.nota = nota;
-                this.fecha_inscripcion = fecha;
-            }
-    
-            var Miguel = NuevoEstudiante("Miguel","Merelli", 51641764, "18/04/1997", "miguel@fx2.com.uy", 095647545,"chocolate");
-            var Jorge = NuevoEstudiante("Jorge","Zapallo", 12345678, "18/04/1997", "miguel@fx2.com.uy", 095647545,"chocolate");
-    
-    
-            var Mauricio = NuevoProfesor("Mauricio", "Rodriguez", "12345666", "12/12/2012", "mauri@gmail.com","095666666", "profesor");
-            var Joaquin = NuevoProfesor("Joaquin", "Martinez", "12345666", "12/12/2012", "mauri@gmail.com","095666666", "profesor");
-    
-    
-            var FrontEnd = NuevoCurso("Front-End",4,"5/4/2017","5/2/2018");
-            var OtroCurso = NuevoCurso("Otro Curso",4,"5/4/2017","5/2/2018");
-    
-            var Matematica = NuevaMateria("Matemáticas", "12:00 a 18:00");
-            var Literatura = NuevaMateria("Literatura", "18:00 a 24:00");
-    
-            var Inscripcion1 = Inscripcion(Miguel, FrontEnd, 200, "1/4/2017")
-    
-        
-    
-    console.log(Miguel);
-    console.log(FrontEnd);
-    console.log(Inscripcion1);
-    */
 
 }
+function ejercicio20() {
+
+    var Persona = {
+        nombre: "Miguel",
+        apellido: "Merelli"
+    }
+
+    Persona.estudiante = {
+        edad: 20
+    }
+
+    console.log(Persona.nombre);
+    console.log(Persona.estudiante.edad);
+
+
+
+
+    console.log("-----------");
+
+
+
+ 
+    var Persona2 = function (nombre, apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    Persona2.estudiante = function (edad) {
+        this.edad = edad;
+    }
+
+    var miguel = new Persona2("Miguel", "Merelli");
+
+    console.log(miguel);
+
+    //console.log(math.max(5, 6, 8));
+    //console.log(math.max.apply(null, [1, 2, 3]));
+
+
+
+    console.log("---------------");
+
+
+    function Personaje(nombre, apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    var manuel = {
+        nombre: "Miguel",
+        apellido: "Merelli",
+        fullname: function () { return "hola" }
+    }
+
+    var jj = new Personaje("Jota", "Jota Pj");
+
+    var muestra = manuel.fullname;
+    console.log(muestra);
+}
+
