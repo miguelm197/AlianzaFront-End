@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+
+
+</script>
+
+</head>
+<body>
+
+<script>
+
+
+function Fecha(ddd,mes,anio){
+    var dia = ddd;
+    this.mes=mes;
+    this.anio=anio;
+    this.sumarDia = function(val){    // metodo privilegiado, pueden acceder a propiedades y metodos privados
+        dia= dia + val;
+    };
+    this.RestarMes = function(val){           // restarmes està llamando una variable pùblica a traves de una funciòn privada
+        this.mes = this.mes - val;
+    }
+
+
+
+};
+
+var fecha1 = new Fecha(10,4,1986);
+console.log(fecha1);
+
+fecha1.sumarDia(2);
+console.log(fecha1);
+
+fecha1.restarMes(2);
+console.log(fecha1);
+
+
+
+</script>
+
+</body>
+</html>
+

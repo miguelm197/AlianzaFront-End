@@ -42,12 +42,12 @@
       <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
     </div></li>
     <li><a href="#!"><i class="material-icons">cloud</i>Accede a mi nube</a></li>
-    <li><a href="#!">Otras cosas interesantes</a></li>
+    <li><a class="noticias" href="#!" value=1 onclick="veoNoticias()">Otras cosas interesantes</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Menú de trucos</a></li>
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
      <!-- Dropdown Trigger -->
-    <li> <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
+    <!--<li> <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
 
   <!-- Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
@@ -80,14 +80,6 @@
           </div>
         </div>
       </div>
-
-<div class="carousel">
-    <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
-    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-    <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-</div>
 
     </div>
 
@@ -130,13 +122,61 @@
 
 <script>
 
+function veoNoticias(){
+    console.log($(".noticias").value;
+    if ($(".noticias").value==1){
+      $(".row1").hide();
+      $(".noticias").value=1;
+    }else{
+      $(".row1").show();
+      $(".noticias").value=0;
+    }
+
+    var apiKey = "04b4d9f57ee64710a525b0e637ad74e1";
+    $.ajax({
+      url: 'https://newsapi.org/v1/articles?source=techcrunch&apiKey=' + apiKey,
+      dataType: 'json',
+      success: function(data){
+        data.articles.forEach(function(articulo) {
+        var html = `
+        <div class='row1'>
+          <div class='card'>
+              <div class='card-image'>
+                  <img src='`+ articulo.urlToImage + `'>
+                  <span class='card-title'<strong>`+
+                      articulo.title + `</strong>
+                  </span>
+              </div>
+              <div class='card-content'>
+                <p>`+ articulo.description + `</p>
+              </div>
+              <div class='card-action'>
+                <a href='`+articulo.url + `'
+                  target='_blank'>Vea esta noticia</a>
+              </div>
+          </div>
+
+        </div>
+        `;
+
+        //var nomClase1 = $(document.activeElement.className);
+        //var nomClasef = nomClase1.selector;
+        //console.log(nomClasef);
+
+      $(".noticias").append(html);
+      }, this);
+      }
+    });
+
+}
+
+
 $(document).ready(function() {
 
-  $(".button-collapse").sideNav();
-  $('.carousel').carousel();
-  
-
 });
+
+  $(".button-collapse").sideNav();
+  
 
 
         
