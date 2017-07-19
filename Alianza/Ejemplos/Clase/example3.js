@@ -1,4 +1,4 @@
-fs = require('fs');
+fs = require('fs');     
 
 console.log('Hola soy un ejemplo')
 fs.readFile('archivos.txt', 'utf-8', leerDatos);

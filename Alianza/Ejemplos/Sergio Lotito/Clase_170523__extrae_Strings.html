@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script>
+
+var largo = 0;
+var p1 = 0;
+var p2 = 0;
+var textof="";
+var linea = "Estos son todos los hashtag: <Hola> x y <<Mundo>< y te digo>rtx<Chau><>";
+
+function ejecuta(){
+
+var palabra = [];
+var basura = [];
+i = 0;
+texto="";
+
+largo = linea.length;
+
+console.log(linea);
+
+while (largo>0){
+	p1 = linea.indexOf("<")+1;
+	p2 = linea.indexOf(">");
+	//console.log(p1);
+	//console.log(p2);
+	separan = linea.substring(0,p1);
+	separa = linea.substring(p2,p1);
+	basura.push(separan);
+	//console.log(basura);
+	palabra.push(separa);
+	//console.log(separa);
+	linea = linea.substring(p2+1);
+	largo = linea.length;
+	//console.log(linea);
+	console.log(largo);
+}
+	console.log(palabra);
+	console.log(basura);
+
+
+
+textoaux="<ul>";
+for (i=0;i<palabra.length;i++){
+	textoaux += "<li>" + palabra[i] + "</li>"; 
+}
+textoaux += "</ul>";
+
+alert(textoaux);
+
+//var texto2 = "";
+//texto2 = textoaux;
+//alert(texto2);
+
+
+
+	document.getElementById("detallef").innerHTML = textoaux;
+	//document.getElementById("detallef2").innerHTML = texto2;
+
+console.log(textoaux.length);
+
+
+return textoaux;
+
+}
+
+/*
+var separa="";
+var p1=0;
+var p2=0;
+var lineaAux = "";
+
+p1 = linea.lastIndexOf("<")+1;
+lineaAux = linea.substring(0,p1);
+p2 = lineaAux.lastIndexOf(">");
+separa = lineaAux.substring(p2,p1);
+linsepa = separa.length-2;
+separaf = separa.substring(2,linsepa);
+
+//console.log(lineaAux);
+//console.log(separaf);
+
+var separa = linea.substring(p1,p2);
+
+//console.log(p1);
+//console.log(p2);
+//console.log(separa);
+
+var prim = linea.indexOf("<");
+var ulti = linea.lastIndexOf(">")
+//console.log(prim);
+//console.log(ulti);
+
+var linea2 = linea.substring(prim,ulti+1);
+//console.log(linea2);
+
+var strarray = linea2.split(separaf);
+//console.log(strarray);
+var largo = strarray.length
+
+var txtfin="";
+var txtfinm="";
+for (i=0; i < largo;i++){
+    var prim = strarray[i].indexOf("<");
+    var ulti = strarray[i].indexOf(">");
+    var extrae = strarray[i].substring(prim+1,ulti);
+//    console.log(extrae);
+    txtfin += extrae + ",";
+//    console.log(txtfin);
+    txtfinm += extrae.toUpperCase() + ",";
+//    console.log(txtfinm);
+}
+*/
+
+
+</script>
+
+</head>
+
+<body>
+
+
+<div class="container">
+  <div class="jumbotron">
+	<div class="detallediv">
+		<p id="detallef">aca texto</p>
+	</div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-success" onclick="ejecuta(linea)">Success</button>
+
+<script>
+//alert(textoaux);
+</script>
+
+</body>
+</html>

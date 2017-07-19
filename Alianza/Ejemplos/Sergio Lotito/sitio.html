@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- www.materializecss.com -->
+<!-- https://www.randomuser.me/ -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+ <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>Chat</li>
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <ul id="slide-out" class="side-nav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="sitio/imagen2.png"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>Accede a mi nube</a></li>
+    <li><a class="noticias" href="#!" value=1 onclick="veoNoticias()">Otras cosas interesantes</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Menú de trucos</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+     <!-- Dropdown Trigger -->
+    <!--<li> <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+  </ul></li>
+
+  </ul>
+
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="sitio/imagen1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>    
+
+</body>
+
+<script>
+
+function veoNoticias(){
+    console.log($(".noticias").value;
+    if ($(".noticias").value==1){
+      $(".row1").hide();
+      $(".noticias").value=1;
+    }else{
+      $(".row1").show();
+      $(".noticias").value=0;
+    }
+
+    var apiKey = "04b4d9f57ee64710a525b0e637ad74e1";
+    $.ajax({
+      url: 'https://newsapi.org/v1/articles?source=techcrunch&apiKey=' + apiKey,
+      dataType: 'json',
+      success: function(data){
+        data.articles.forEach(function(articulo) {
+        var html = `
+        <div class='row1'>
+          <div class='card'>
+              <div class='card-image'>
+                  <img src='`+ articulo.urlToImage + `'>
+                  <span class='card-title'<strong>`+
+                      articulo.title + `</strong>
+                  </span>
+              </div>
+              <div class='card-content'>
+                <p>`+ articulo.description + `</p>
+              </div>
+              <div class='card-action'>
+                <a href='`+articulo.url + `'
+                  target='_blank'>Vea esta noticia</a>
+              </div>
+          </div>
+
+        </div>
+        `;
+
+        //var nomClase1 = $(document.activeElement.className);
+        //var nomClasef = nomClase1.selector;
+        //console.log(nomClasef);
+
+      $(".noticias").append(html);
+      }, this);
+      }
+    });
+
+}
+
+
+$(document).ready(function() {
+
+});
+
+  $(".button-collapse").sideNav();
+  
+
+
+        
+
+</script>
+</html>
