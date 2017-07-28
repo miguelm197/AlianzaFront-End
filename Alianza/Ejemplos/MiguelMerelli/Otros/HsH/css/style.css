@@ -1,0 +1,182 @@
+/* @import url('https://fonts.googleapis.com/css?family=Raleway:100,400,500');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700'); */
+
+
+.ingresar{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index: 40;
+
+}
+.ingresar .fondo{
+    background-color: black;
+    width:100%;
+    height:100%;
+    opacity: .8;
+    position:absolute;
+    z-index: 41;
+
+}
+.ingresar .login{
+    background-color: white;
+    width:30%;
+    height:100%;
+    left:35%;
+    position:absolute;
+    z-index: 42;
+}
+
+
+
+
+
+
+
+nav{
+    background-color: #e9e9e9;
+}
+nav > h3{
+    float: left;
+    font-size: 25px;
+    padding-left: 20px;
+}
+nav > div{
+    padding :15px;
+     float: right;
+}
+nav>div>span{
+    font-size: 17px;
+    cursor:pointer;
+}
+
+
+
+.radio > label{
+    margin-left: 18px !important;
+}
+.formulario{
+    margin-top: 25%;
+    transform: translateY(-50%);
+}
+
+.contenedor{
+    margin-top: 75px;
+}
+.contenedor-login{
+    margin: 20px;
+    margin-top: 140px;
+}
+
+.contenedor-login > input{
+    margin-bottom: 20px;
+}
+
+select{
+    height: 33px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+}
+.izquierda .panel-heading{
+    padding: 0px !important;    
+}
+.izquierda .panel-body{
+    padding: 0px !important;    
+        border-top: 1px solid gray;
+}
+.izquierda .panel-body > button{
+    width: 100% !important;
+    background-color: white;
+    border: none;
+    margin: 10px 0px;
+    text-align: left;
+
+}
+.boton-izquierda{
+    width: 100% !important;
+}
+.titulos{
+    padding-left: 30px;
+    color: gray;
+}
+
+.activar{
+    display: inline !important;
+}
+.desactivar{
+    display: none ;
+}
+
+.activar-modal{
+    left: 50%;
+    top: 50%;
+}
+
+
+
+
+@keyframes contenedor-modal-s {
+    0% { left: 50%; }
+    100% { left: -50%; }
+}  
+
+
+@keyframes fondo-modal {
+    0% {opacity: 0; }
+    100% { opacity: .8; }
+}
+
+
+@keyframes contenedor-modal {
+    0% { top: -50%; }
+    50% { top: -50%; }
+    80% { top: 52%; }
+    100% { top: 50%; }
+}  
+
+
+
+
+.alta-modal{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 22;
+}
+
+.alta-modal .fondo{
+    opacity: .8;
+
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    cursor: pointer;
+    
+    animation-duration: .3s;
+    animation-name: fondo-modal;
+    z-index: 23;
+}
+
+
+
+.alta-modal .contenedor-modal{
+    position: absolute;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    z-index: 24;
+
+    animation-duration: .3s;    
+    animation-name: contenedor-modal;
+}
+
+

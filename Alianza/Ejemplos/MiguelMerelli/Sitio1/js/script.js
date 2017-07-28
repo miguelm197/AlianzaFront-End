@@ -656,7 +656,7 @@ function ejercicio18() {
     var propietarios = [];
 
     function LeerArchivo(url, col, separador, NOMBRE) {
-        
+
         $.ajax({
             url: url,
             dataType: "text",
@@ -760,7 +760,7 @@ function ejercicio20() {
 
 
 
- 
+
     var Persona2 = function (nombre, apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -798,4 +798,26 @@ function ejercicio20() {
     var muestra = manuel.fullname;
     console.log(muestra);
 }
+function ejercicio24() {
+    function Fecha(d, m, a) {
+        this.dia = d;
+        this.mes = m;
+        this.anio = a;
+    }
 
+    function sumarFechas(fecha1, fecha2) {
+        var fechaResut = new Fecha(fechaA.dia + fechaB.dia, fechaA.mes + fechaB.mes, fechaA.anio + fechaB.anio);
+        return fechaResult;
+    }
+
+    var restarFechas = function (fechaA, fechaB) {
+        var fechaResult = new Fecha(fechaA.dia - fechaB.dia, fechaA.mes - fechaB.mes, fechaA.anio = fechaB.anio);
+
+    }
+
+    var fecha1 = new Feca(12, 4, 2995);
+    var fecha2 = new Fecha(1, 2, 2000);
+    var result = sumarFechas(fecha1, fecha2);
+    console.log(result)
+
+}
