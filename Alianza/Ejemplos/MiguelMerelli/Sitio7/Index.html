@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pi-Pa-Ti</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="botones" onclick="jugar('piedra')">Piedra</button>
+            </div>
+            <div class="col-md-4">
+                <button class="botones" onclick="jugar('papel')">Papel</button>
+            </div>
+            <div class="col-md-4">
+                <button class="botones" onclick="jugar('tijera')">Tijera</button>
+            </div>
+        </div>
+
+        <div class="row"><br><br><br>
+            <div class="col-md-2">
+                <h4>Humano</h4>
+                <span class="jugadas" id="humano">asdasd</span>
+            </div>
+            <div class="col-md-2">
+                <h4>Máquina</h4>
+                <span class="jugadas" id="maquina">fb</span>
+            </div>
+        </div>
+
+        <span id="resultado">Ganaste...</span><br>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-4">
+                <span class="resultados h3">Partidas ganadas: </span>
+                <span class="h1" id="ganadas">0</span>
+            </div>
+            <div class="col-md-4">
+                <span class="resultados h3">Partidas perdidas: </span>
+                <span class="h1" id="perdidas">0</span>
+            </div>
+            <div class="col-md-4">
+                <span class="resultados h3">Partidas totales: </span>
+                <span class="h1" id="totales">0</span>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+
+    </footer>
+
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
