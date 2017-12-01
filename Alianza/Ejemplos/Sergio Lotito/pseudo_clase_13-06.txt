@@ -1,0 +1,23 @@
+linea = leerLinea()
+if linea.contains("drawtable2"){
+
+	string[1,2,3,4,5]
+	
+	for (i=0, string.lengh){
+		linea = leerLinea()
+		if linea.contains string[1]
+
+		
+
+	}
+
+}
+
+
+
+largop = linea.largo
+linea.split()
+
+
+
+while linea not == "End Function Draw Table 2"

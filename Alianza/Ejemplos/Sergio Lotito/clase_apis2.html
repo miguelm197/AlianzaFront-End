@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<title>
+</title>
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>Datos de usuario</p>            
+  <div class="table-responsive"></div>
+</div>
+
+
+
+<script>
+
+$(document).ready(function(){
+
+ $.ajax({
+      url: 'http://smarttravel.io/obtener_usuarios.php?admin=5',
+      dataType: 'JSON',
+      type: "GET",
+      success: function(){
+        console.log('AJAX OK');
+      }
+}).done(function(datos) {
+
+console.log(datos);
+
+var table = '<table class="w3-table">';
+table += '<thead>';
+table = "<tr><th>id</th><th>email</th> <th>clase</th><th>sexo</th><th>pago</th></tr>";
+table += '</thead>';
+
+
+
+for (var singleRow = 0; singleRow < datos.length; singleRow++) {           //  Para opciones 1 a 4 baseCompleta=(tabla de la opcion)
+
+
+                      table += '<tr>';
+
+                      table += '<td>';
+                      table += datos[singleRow].id;
+                      table += '</td>';
+
+                      table += '<td>';
+                      table += datos[singleRow].email;
+                      table += '</td>';
+
+                      table += '<td>';
+                      table += datos[singleRow].clave;
+                      table += '</td>';
+
+                      table += '<td>';
+                      table += datos[singleRow].sexo;
+                      table += '</td>';
+
+                      table += '<td>';
+                      table += datos[singleRow].pago;
+                      table += '</td>';
+
+                        table += '</tr>';
+
+
+
+}
+
+
+//      table += '</table>';
+
+
+
+
+      $('.table-responsive').append(table);
+
+
+var v_email = datos[1].email;
+console.log(v_email);
+
+
+});
+});
+
+</script>
+
+</body>
+
+</html>

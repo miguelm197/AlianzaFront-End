@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+
+
+
+            function Persona(nombre,apellido, ci){
+                    this.nombre = nombre;
+                    this.apellido = apellido;
+                    this.ci = ci;
+            }
+            
+            function mostrar (){
+                var persona = new Persona("Juan", "Guerra", "1");
+                var persona2 = new Persona("Juan", "Guerra", "1");
+
+            if (persona == persona2){
+                console.log("son iguales");
+            }else{
+                console.log("son diferentes");
+            }
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>

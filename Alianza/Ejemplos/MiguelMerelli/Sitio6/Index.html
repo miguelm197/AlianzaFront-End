@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BASE</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h2>BASE</h2>
+            <div class="row" id="fila1">
+                <div class="col-md-6">
+
+
+
+
+                    <form action="http://smarttravel.io/usuarios.php" method="POST">
+
+                        <div class="input-group margin-bottom-sm form-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+                            <input name="email" class="form-control" type="email" placeholder="Correo*" required>
+                        </div>
+
+
+                        <div class="input-group margin-bottom-sm form-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                            <input name="clave" class="form-control" type="password" placeholder="Contraseña*" required>
+                        </div>
+
+
+                        <label class="radio-inline">
+                            <input name="sexo" type="radio" value="M"> Masculino
+                        </label>
+                        <label class="radio-inline">
+                            <input name="sexo" type="radio"  value="F"> Femenino
+                        </label>
+
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="pago" type="checkbox"> Eres gay? 
+                            </label>
+                        </div>
+
+
+                        <div class="input-group margin-bottom-sm form-group">
+                            <input name="admin" class="form-control" type="text" placeholder="Usuario" required value="78">
+                        </div>
+
+
+
+                        <button class="btn btn-primary form-control" onclick="consulta()">Enviar</button>
+                    </form>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-md-2">
+
+                    <button class="btn btn-primary  form-control" onclick="consulta()" style="display:inline">Consulta</button>
+
+                </div>
+                <div class="col-md-2">
+
+                    <div class="input-group margin-bottom-sm">
+                        <input name="admin" id="usuario" class="form-control" type="text" placeholder="Usuario" required value="78">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Email</th>
+                            <th>Clave</th>
+                            <th>Sexo</th>
+                            <th>Es Gay?</th>
+                            <th>Usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody class="datos">
+                        <!--
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>joaquin@asdasd.com</td>
+                                <td>asdasfasfasfasfasfasgas</td>
+                                <td>Masculino</td>
+                                <td>Siiiii</td>
+                                <td>jaja</td>
+                            </tr>
+                        -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+
+
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/script.js"></script>
+</body>
+
+</html>

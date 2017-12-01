@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function mostrar(){
+                var cantidades = [];
+                var dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+                var letras = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+                var ax = {letra: "a", valor: 0};
+                var bx = {letra: "b", valor: 0};
+                var cx = {letra: "c", valor: 0};
+                var dx = {letra: "d", valor: 0};
+                var ex = {letra: "e", valor: 0};
+                var fx = {letra: "f", valor: 0};
+                var gx = {letra: "g", valor: 0};
+                var hx = {letra: "h", valor: 0};
+                var ix = {letra: "i", valor: 0};
+                var jx = {letra: "j", valor: 0};
+                var kx = {letra: "k", valor: 0};
+                var lx = {letra: "l", valor: 0};
+                var mx = {letra: "m", valor: 0};
+                var nx = {letra: "n", valor: 0};
+                var ox = {letra: "o", valor: 0};
+                var px = {letra: "p", valor: 0};
+                var qx = {letra: "q", valor: 0};
+                var rx = {letra: "r", valor: 0};
+                var sx = {letra: "s", valor: 0};
+                var tx = {letra: "t", valor: 0};
+                var ux = {letra: "u", valor: 0};
+                var vx = {letra: "v", valor: 0};
+                var wx = {letra: "w", valor: 0};
+                var xx = {letra: "x", valor: 0};
+                var yx = {letra: "y", valor: 0};
+                var zx = {letra: "z", valor: 0};
+                var objletras= {conjunto:[ax, bx, cx, dx, ex, fx, gx, hx, ix, jx, kx, lx, mx, nx, ox, px, qx, rx, sx, tx, ux, vx, wx, xx, yx, zx]};
+                //var entrada= prompt("Ingrese Valor: ");
+                var juntadias = dias.concat();
+                //console.log(entrada);
+                var contador;
+                var vocales= 0;
+                var consonantes = 0;
+                for(var i= 0; i < letras.length; i ++){
+                    contador=0;
+                    for(var j=0;j < juntadias.length; j++){
+                        if(letras[i] == juntadias[j]){
+                            contador= contador + 1;
+                        }
+                        if(juntadias[j] == ("a"||"e"||"i"||"o"||"u")){
+                            vocales= vocales + 1;
+                        }else{
+                            consonantes= consonantes + 1;
+                        }
+                        }
+                    }
+                    for(var k=0; k < objletras.conjunto.length; k++){
+                        if (letras[i] == objletras.conjunto[k].letra){
+                            objletras.conjunto[k].valor = contador;
+                        }
+                    }
+                    console.log(objletras);
+                    console.log(vocales);
+                    console.log(consonantes);
+                }
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>

@@ -1,0 +1,3 @@
+nombre,apellido,ci,fechaNac,mail,celular,gustos
+,Jesse,Pinkman,5123119-4,27/08/79,jessepink79@hotmail.com,091432543,Videojuegos-Juntarse con amigos
+,Walter Jr.,White,5923319-1,10/06/85,wjw85@hotmail.com,0919123655,Salir con amigos-Estar con la familia

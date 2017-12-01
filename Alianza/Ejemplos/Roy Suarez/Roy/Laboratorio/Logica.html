@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+        <title> Home Sweet Home </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="table-responsive">
+                <h1 align="center">Home Sweet Home</h1>
+                <br />
+                    <div align="center">
+                    <button type="button" name="arrendatarios" id="arrendatarios" class="btn btn-info">Arrendatarios</button>
+                    <button type="button" name="inmuebles" id="inmuebles" class="btn btn-info">Inmuebles</button>
+                    <button type="button" name="alquileres" id="alquileres" class="btn btn-info">Alquileres</button>
+                    </div>
+                <br />  
+                    <div id="arrendatarios_table">
+                    </div>
+                    <div id="inmuebles_table">
+                    </div>
+                    <div id="alquileres_table">
+                    </div>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+
+            function Arrendatarios(ci, nombre, apellido, estado, sexo, garantia){
+            this.ci = ci;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.estado = estado;
+            this.sexo = sexo;
+            this.garantia =garantia;
+        }
+
+        function Propietarios(ci, nombre, apellido, estado, sexo){
+            this.ci = ci;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.estado = estado;
+            this.sexo = sexo;
+        }
+        
+        function Inmuebles(id, tipo, precio, metros, dormitorios, garage, jardin, anio, cipropietario){
+            this.id = id;
+            this.tipo = tipo;
+            this.precio = metros;
+            this.dormitorios = dormitorios;
+            this.garage = garage;
+            this.jardin = jardin;
+            this.anio = anio;
+            this.cipropietario=cipropietario;
+        }
+
+
+    function Alquileres(idinmueble, ciarrendatario, fechaini, fechafin){
+        this.idinmueble = idinmueble;
+        this.ciarrendatario = ciarrendatario;
+        this.fechaini = fechaini;
+        this.fechafin =fechafin;
+        //Fechas es un objeto, habra que definir módulos?
+
+    }
+
+    $(document).ready(function(){
+        $('#arrendatarios').click(function(){
+            $('#alquileres_table').hide();
+            $('#inmuebles_table').hide();
+            $('#arrendatarios_table').show();
+        $.ajax({
+        url:"http://127.0.0.1:8887/arrendatarios.csv",
+        dataType:"text",
+        success:function(data)   
+        {
+            var arrendatarios_data = data.split(/\r?\n|\r/);
+            var table_data = '<table class="table table-bordered table-striped">';
+            for(var count = 0; count<arrendatarios_data.length; count++)
+            {
+            var cell_data = arrendatarios_data[count].split(";");
+            table_data += '<tr>';
+            for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+            {
+            if(count === 0)
+            {
+            table_data += '<th>'+cell_data[cell_count]+'</th>';
+            }
+            else
+            {
+            table_data += '<td>'+cell_data[cell_count]+'</td>';
+            }
+            }
+            table_data += '</tr>';
+            }
+            table_data += '</table>';
+            $('#arrendatarios_table').html(table_data);
+        }
+        });
+    });
+    $('#inmuebles').click(function(){
+        $('#alquileres_table').hide();
+        $('#arrendatarios_table').hide();
+        $('#inmuebles_table').show();
+        $.ajax({
+        url:"http://127.0.0.1:8887/inmuebles.csv",
+        dataType:"text",
+        success:function(data)   
+        {
+            var arrendatarios_data = data.split(/\r?\n|\r/);
+            var table_data = '<table class="table table-bordered table-striped">';
+            for(var count = 0; count<arrendatarios_data.length; count++)
+            {
+            var cell_data = arrendatarios_data[count].split(";");
+            table_data += '<tr>';
+            for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+            {
+            if(count === 0)
+            {
+            table_data += '<th>'+cell_data[cell_count]+'</th>';
+            }
+            else
+            {
+            table_data += '<td>'+cell_data[cell_count]+'</td>';
+            }
+            }
+            table_data += '</tr>';
+            }
+            table_data += '</table>';
+            $('#inmuebles_table').html(table_data);
+        }
+        });
+    });
+    $('#alquileres').click(function(){
+        $('#arrendatarios_table').hide();
+        $('#inmuebles_table').hide();
+        $('#alquileres_table').show();
+        $.ajax({
+        url:"http://127.0.0.1:8887/alquileres.csv",
+        dataType:"text",
+        success:function(data)   
+        {
+            var arrendatarios_data = data.split(/\r?\n|\r/);
+            var table_data = '<table class="table table-bordered table-striped">';
+            for(var count = 0; count<arrendatarios_data.length; count++)
+            {
+            var cell_data = arrendatarios_data[count].split(";");
+            table_data += '<tr>';
+            for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+            {
+            if(count === 0)
+            {
+            table_data += '<th>'+cell_data[cell_count]+'</th>';
+            }
+            else
+            {
+            table_data += '<td>'+cell_data[cell_count]+'</td>';
+            }
+            }
+            table_data += '</tr>';
+            }
+            table_data += '</table>';
+            $('#alquileres_table').html(table_data);
+        }
+        });
+    });
+});
+
+</script>
+    

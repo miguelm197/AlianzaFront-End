@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reading from a file with Node.js</title>
+</head>
+<body>
+
+<script>
+
+        function Profesor(nombre,apellido,ci,fechnac,mail,celular,profesion){
+                  this.nombre=nombre;
+                  this.apellido=apellido;
+                  this.ci=ci;
+                  this.fechnac=fechnac;
+                  this.mail=mail;
+                  this.celular=celular;
+                  this.profesion=profesion;
+        }
+
+        function Estudiante(nombre,apellido,ci,fechnac,mail,celular,gustos){
+                  this.nombre=nombre;
+                  this.apellido=apellido;
+                  this.ci=ci;
+                  this.fechnac=fechnac;
+                  this.mail=mail;
+                  this.celular=celular;
+                  this.gustos=gustos;
+        }
+
+        function Curso(nombre,salon,fechinic,fechfin,estudiante){
+                  this.nombre=nombre;
+                  this.salon=salon;
+                  this.fechnic=fechinic;
+                  this.fechfin=fechfin;
+                  this.estudiante=estudiante;
+        }
+
+        function Materia(nombre,horario){
+                  this.nombre=nombre;
+                  this.horario=horario;
+                  this.estudiante=estudiante;
+        }
+
+
+        var Profesor = new Profesor(nombre,apellido,ci,fechnac,mail,celular,profesion);
+
+        var Estudiante = new Estudiante(nombre,apellido,ci,fechnac,mail,celular,gustos);
+
+        var Curso = new Curso(nombre,salon,fechinic,fechfin,estudiante);
+
+        var Materia = new Materia(nombre,horario);
+
+
+        fs = require('fs');
+
+        const util=require('util');
+
+        fs.readFile('archivos.txt','utf-8', reading);
+
+        function reading(error, data){
+
+            if (error)
+            return console.log('error':, error)
+            else
+            console.log('data':, data);
+        }
+
+
+      console.log(util.inspect(archivo_sin_definir_aun, false, null));
+
+      const util = require('util');
+
+      </script>
+
+      </html>

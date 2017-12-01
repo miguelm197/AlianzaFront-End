@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head> <meta charset = "UTF-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css"/>		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<title>Comic World</title>
+	<head>
+	<body>
+		<div id="menu"></div>
+        <div class="container" style="padding-top: 90px;">
+            <div id="magia" class="row">
+                <div class="col-md-4 col-md-offset-4">
+                <h1>Login</h1>
+                <form>
+                    <div class="form-group">
+							<input id="name" type="text" class="form-control" id="Contactmail" placeholder="Ingresar Email o Nombre de Usuario">
+					</div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="Contactname" placeholder="Ingresar Password">
+                    </div>
+                    <div class="form-group">
+                        <button onclick="mostrar()" type="button" class="btn btn-success btn-lg btn-block"> Ingresar </button>
+					</div> 
+                </form>
+                </div>
+            </div>
+			<div id="pronto" class"row">
+				<div class="col-md-4 col-md-offset-4">
+					<h1>Ingreso exitoso!</h1>
+					<h2>Bienvenido<h2>
+				</div>
+			</div>
+		<footer>
+		</footer>
+		<script type= "text/javascript">
+			$(document).ready(function(){
+				$("#menu").load("Menu.html")
+			});
+		</script>
+		<script src="scripts.js"></script>
+	</body>
+</html>

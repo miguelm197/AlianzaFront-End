@@ -1,0 +1,29 @@
+<DOCTYPE!>
+
+<html>
+
+    <body>
+
+        <script type="text/javascript">
+
+               var x = "informatica!"; //esto seria una varible GLOBAL porque esta fuera de una funcion y podria ser accedida
+                                       // desde cualquier punto del codigo. 
+
+
+               function local (){
+
+                  // var x ="informatica!"; ----> Si yo moviese la variable para dentro de la funcion,
+                  // seria una variable LOCAL, entonces el doc-write abajo señalado, no podría ser impreso
+                  // ya que las variables LOCALES , SOLO pueden ser accedidas desde su misma funcion.
+
+                   document.write("A mi me gusta la " + x + "</br>");
+                   };
+
+                   local();
+
+                  document.write("A mi NO me gusta la " + x + "</br>"); // -------- el doc-write señalado es ESTE!
+	    </script>
+
+    </body>
+
+</html>

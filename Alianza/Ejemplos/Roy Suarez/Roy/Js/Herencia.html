@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+
+
+
+            function Persona(nombre,apellido, edad){
+                    this.nombre = nombre;
+                    this.apellido = apellido;
+                    this.edad = edad;
+            }
+                
+                Estudiante.prototype = new Persona();
+                Estudiante.prototype.constructor = Estudiante();
+
+                function Estudiante (nombre,apellido,edad,gustos) {
+                    this.nombre = nombre;
+                    this.apellido = apellido;
+                    this.edad = edad;
+                    this.gustos  = gustos;
+                }
+            
+            
+            function mostrar (){
+                var params= ["Roy", "Suarez", "23", "PC"];
+                var roy = new Estudiante("PC");
+                
+                console.log(Object.keys(roy));
+
+                Math.max (5, 3, 8);
+                var que = Math.max.apply(null, [1,2,3]);
+              
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>

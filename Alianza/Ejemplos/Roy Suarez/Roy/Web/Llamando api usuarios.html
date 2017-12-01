@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head> <meta charset = "UTF-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css"/>		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<title>Usuarios</title>
+        <script>
+            $(document).ready(function(){
+            $.ajax({
+                url: "http://smarttravel.io/obtener_usuarios.php?admin=2",
+                dataType: "json",
+                success: function (data){
+                    var html = `<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Email</th>
+                                            <th>Sexo</th>
+                                            <th>Premium</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>`;
+                    var img=``;
+                    for(var i = 0; i < data.length; i ++)
+                    {
+                        if(data[i].pago == 1){
+                            img = `<i class="fa fa-check-square-o" style="font-size:24px; color:green"></i>`
+                        }else{
+                            img = `<i class="fa fa-square-o" style="font-size:24px; color:red"></i>`
+                        }
+                        html = html + `<tr>
+                                        <td>`+ data[i].id +`</td>
+                                        <td>`+ data[i].email +`</td>
+                                        <td>`+ data[i].sexo +`</td>
+                                        <td>`+ img +`</td>
+                                        </tr>`;
+                    }
+                    html = html + `</tbody>
+                                    </table>`;
+                    $(".container").append(html);
+
+                }
+            })
+        })  
+        
+        </script>
+	<head>
+	<body>
+        <div class="container" style="padding-top: 90px;">
+        </div>
+	</body>
+</html>

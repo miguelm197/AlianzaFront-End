@@ -1,0 +1,14 @@
+p {background-color: blue;
+}
+
+table, td, th {
+    border: 1px solid green
+}
+
+input {
+    background-color: yellowgreen
+}
+
+div.encabezado {
+    background-color: blue; color: "white";
+}

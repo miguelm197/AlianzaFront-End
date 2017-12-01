@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+            function mostrar(){
+                var montos = [0,0,0,0];
+                var harina= { esComestible: true, precio: 40 };
+                var azucar= { esComestible: true, precio:35};
+                var leche= { esComestible: true, precio:23};
+                var huevo= { esComestible: true, precio:3};
+                var spinner= { esComestible: false, precio:600};
+                var lapiz= { esComestible: false, precio:19};
+                var credito = { nombre: "Credito", descuento: 0};
+                var debito = { nombre: "Debito", descuento: 5};
+                var ticket = { nombre: "Ticket", descuento: 0};
+                var efectivo = { nombre: "Efectivo", descuento: 0};
+                var montoCli;
+                var montoComestible;
+                var Sergio= {mediosdePago:[ticket,debito],productos: [harina,azucar,leche,huevo]};
+                var Juan= {mediosdePago:[ticket,debito,efectivo],productos: [harina,spinner,leche]};
+                var Victoria= {mediosdePago:[credito,debito],productos: [lapiz,spinner,huevo]};
+                var cola=[Sergio,Juan,Victoria];
+                //console.log(cola);
+                console.log(cola[1].productos[1].precio);
+                var i = 0;
+                var encontro;
+                var indice;
+                do{
+                    montoCli= 0;
+                    montoComestible = 0;
+                    for(var j; j < cola[i].productos.length; j++){
+                        if(cola[i].productos[j].esComestible = true){
+                            montoComestible= cola[i].productos[j].precio + montoComestible;
+                            montoCli= cola[i].productos[j].precio + montoCli;
+                        }else{
+                            montoCli= cola[i].productos[j].precio + montoCli;  
+                        }
+                    }
+                    indice= 0;
+                    while(!encontro && indice < cola[i].mediosdePago.length){
+                        if (cola[i].mediosdePago[indice].nombre == "Ticket"){
+                            encontro = true;
+                        }
+                        indice = indice + 1;
+                    }
+                    if(encontro){
+                        montoCli = montoCli - montoComestible;
+                    }
+
+                    i = i + 1;
+                }while(i < cola.length);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="submit" value="Click" onclick="mostrar()" />
+    <body>
+</html>

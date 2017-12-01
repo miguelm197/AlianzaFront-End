@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+    <head> 
+	    <meta charset = "UTF-8">
+		<title>Comic World</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+	<head>
+	<body>
+		<div id="menu"></div>
+		<div class="container" style="padding-top: 90px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel1" data-slide-to="1"></li>
+                            <li data-target="#myCarousel1" data-slide-to="2"></li>
+                        </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                        <img src="C:\Users\usuario\Documents\Roy\Inicio\Images\Dead1.jpg" alt="Vol.1" style="max-height:650px">
+                        </div>
+
+                        <div class="item">
+                        <img src="C:\Users\usuario\Documents\Roy\Inicio\Images\Dead2.jpg" alt="Vol.2" style="max-height:650px">
+                        </div>
+
+                        <div class="item">
+                        <img src="C:\Users\usuario\Documents\Roy\Inicio\Images\Dead3.jpg" alt="Vol.3" style="max-height:650px">
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel1" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-md-8" >
+                    <div class="container" >
+                        <h1>Deadpool Vol.1 al 20- Nuevos y usados</h1>
+                        <div>
+                            <a>Marvel Comics - Vendedor Oficial (9999+ ventas)</a>
+                        </div>
+                        <br>
+                        <br>
+                        <div>
+                            <b>  Antes <b><del> <font color="red">$600 </del> </font></p></b>
+                            <h2><strong><b>Ahora <font color="green">$ 450</font></b></strong></h2>
+                        </div>
+                        
+                        
+                        <select class="selectpicker show-tick" data-style="btn-success" data-size="8">
+                            <option>Volumen 1</option>
+                            <option>Volumen 2</option>
+                            <option>Volumen 3</option>
+                            <option>Volumen 4</option>
+                            <option>Volumen 5</option>
+                            <option>Volumen 6</option>
+                            <option>Volumen 7</option>
+                            <option>Volumen 8</option>
+                            <option>Volumen 9</option>
+                            <option>Volumen 10</option>
+                            <option>Volumen 11</option>
+                            <option>Volumen 12</option>
+                            <option>Volumen 13</option>
+                            <option>Volumen 14</option>
+                            <option>Volumen 15</option>
+                            <option>Volumen 16</option>
+                            <option>Volumen 17</option>
+                            <option>Volumen 18</option>
+                            <option>Volumen 19</option>
+                            <option>Volumen 20</option>
+                        </select>
+                    <div class="container" style="margin-top: 25px;">
+                        <div class="row">
+                            <form class="form">
+                                <label for="estado" class="control-label input-group">Estado</label>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-danger">
+                                        <input name="estado" value="Nuevo" type="radio">Nuevo
+                                    </label>
+                                    <label class="btn btn-danger">
+                                        <input name="estado" value="Usado" type="radio">Usado
+                                    </label>
+                                </div>
+                                <br>
+                            <div class="center" style="margin-top: 25px;width: 130px">
+                               <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="10">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                                <div style="margin-top: 25px;">
+                                    <a href="#" class="btn btn-info btn-lg">
+                                    <span onclick= "actualizarCantidad()" class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+		</div>
+		<footer>
+		</footer>
+        <script type= "text/javascript">
+			$(document).ready(function(){
+				$("#menu").load("Menu.html")
+			});
+		</script>
+        <script src="button.js"></script>
+	</body>
+</html>

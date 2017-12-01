@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Ejemplo de ajax </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            function funcionX(){
+                var palabra = $("#sentimiento").val();
+                console.log("palabra en input--->" + palabra);
+
+                var imagenes = {"recontento" : "http://mamadigital.mx/blog/wp-content/uploads/2015/11/image4.png", 
+                                "contento" : "https://i1.wp.com/cdn.shopify.com/s/files/1/0185/5092/products/persons-0002_large.png",
+                                "maso" : "http://donuts.es/wp-content/uploads/2016/05/serio1.png",
+                                "pocotriste" : "https://www.teleadhesivo.com/es/img/aspemoj44-png/folder/products-detalle-png/pegatinas-coches-motos-cara-triste-llorando.png   ",
+                                "triste" : "http://www.beevoz.com/wp-content/uploads/2015/06/crying-emoji.png"
+                                }
+                $.ajax({
+                        type: "POST",   
+                        url: 'https://apiv2.indico.io/sentiment',
+                        header: {
+                            "X-ApiKey":"2705e2a404b12679358b745f4e4b7764"
+                        },
+                        data:   {
+                                'api_key': "2705e2a404b12679358b745f4e4b7764",
+                                "data": palabra,
+                                "language": "spanish"
+                        },
+                        success: function (response) {
+                            var objeto = JSON.parse(response);
+                            $("#emocion").removeAttr("style");
+                            if (objeto.results < 0.30){
+                                console.log("triste");
+                                $("#emocion").attr("src", imagenes["triste"]);
+                            }else if(objeto.results < 0.45){
+                                console.log("poco triste");
+                                $("#emocion").attr("src", imagenes["pocotriste"]);
+                            }else if(objeto.results < 0.65){
+                                console.log("masomenoo");
+                                $("#emocion").attr("src", imagenes["maso"]);
+                            }else if(objeto.results < 0.75){
+                                console.log("bieeen");
+                                $("#emocion").attr("src", imagenes["contento"]);
+                            }else{
+                                console.log("re bieeeen");
+                                $("#emocion").attr("src", imagenes["recontento"]);
+                            }
+                        }
+                });                
+            }
+        </script>
+    <body>
+        <div class="container">
+            <h2 id= "titulo"> Vamos a ver como te sientes según lo que escribas: </h2>
+                <div class="form-group">
+                    <label for="sentimiento"> Exprese su sentimiento: </label>
+                    <textarea class="form-control" id="sentimiento"></textarea>
+                    <button class="btn btn-info" onclick="funcionX()"> Ver sentimiento</button>
+                </div>
+                <img src(unknow) style= "display : none" id="emocion" width="300px" height="300px">
+        </div>
+    <body>
+</html>
