@@ -821,14 +821,3 @@ function ejercicio24() {
     console.log(result)
 
 }
-
-function ejercicio25() {
-    var numero = 896;
-    var contador = 1;
-
-    for (var i = numero; i >= 1; i--) {
-        console.log(contador + " " + i + "=" + contador * i);
-        contador = contador * i;
-    }
-    console.log("Total: " + contador)
-}
