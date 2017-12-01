@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+
+
+<title>
+</title>
+
+</head>
+
+<body>
+    <script>
+
+    function Mammal(name){
+        this.name=name;
+    }
+
+    Mammal.prototype.toString = function(){
+       return this.name;
+    }
+
+    Cat.prototype = new Mammal();
+    Cat.prototype.constructor=Cat;
+    Cat.prototype.parent = Mammal.prototype;
+
+    function Cat(color,name){
+        this.color=color;
+        this.name=name;
+    }
+
+    Dog.prototype = new Mammal();
+    Dog.prototype.constructor=Dog;
+
+    Dog.prototype.toString=function(){
+        return "[Dog " + this.raza + " " + this.name + "]";
+    }
+
+    Cat.prototype.toString=function(){
+        return "[Cat " + this.color + " " + this.parent.toString.call(this) + "]";
+    }
+
+    function Dog(raza,name){
+        this.raza=raza;
+        this.name=name;
+    }
+
+    function Persona(name){
+        this.name=name;
+    }
+
+    var myMammal = new Mammal("mam");
+    var manuel = new Persona("Juan");
+    console.log("probando");
+
+    console.log(myMammal.toString.call(manuel));
+
+    var myCat = new Cat("Brown","Mauri");
+//    console.log(myCat);
+    console.log(myCat.toString());
+
+    var myDog = new Dog("Doberman","Tomy");
+//    console.log(myDog);
+    console.log(myDog.toString());
+
+    //console.log(Mammal);
+
+    console.log(myCat.parent);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" ng-app="miApp"> <!--<![endif]-->
+<head>
+    <title>El Rey de los Vegetales</title>
+
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <base href="/">
+   
+    <!-- Local -->
+    <link rel="stylesheet" href="./sitio/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./sitio/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./sitio/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./sitio/css/main.css">
+    
+    <link rel="stylesheet" type="text/css" href="./estilo/estilo.css">
+    <link rel="stylesheet" href="./estilo/estiloDashboard.css">
+    <link rel="stylesheet" href="./estilo/estiloTabla.css">
+    <link rel="stylesheet" href="./estilo/nuevoUsuario.css">
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css">
+
+    <script src="./sitio/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./node_modules/angular-route/angular-route.js"> </script>
+    <script src="./node_modules/angular-material/angular-material.min.js"></script>
+    <script src="./node_modules/angular-cookies/angular-cookies.js"></script> 
+    <script src="./node_modules/angular-md5/angular-md5.js"></script>
+    <script src="./node_modules/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="./node_modules/ng-file-upload/dist/ng-file-upload-all.min.js"></script>
+    
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    
+    <!--
+ 
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+ 
+        <script src="./sitio/js/main.js"></script>
+
+    <script src="./sitio/js/jquery.scrollTo.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+
+
+
+    <script src="./sitio/js/jquery.actual.min.js"></script>
+
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/angular-animate.min.js"></script>
+
+    -->
+
+
+    <script src="./app.js"></script>
+    <script src="./filtros/filtros.js"></script>    
+    <script src="./usuarios/usuarioController.js"></script>
+    <script src="./usuarios/usuarioFactory.js"></script>
+    <script src="./productos/verduraController.js"></script>
+    <script src="./productos/verduraFactory.js"></script>
+    <script src="./ofertas/ofertaController.js"></script>
+    <script src="./ofertas/ofertaFactory.js"></script>
+    <script src="./categorias/categoriaController.js"></script>
+    <script src="./categorias/categoriaFactory.js"></script>
+    <script src="./home/homeController.js"></script>
+    <script src="./inicio/inicioController.js"></script>
+    <script src="./home/authenticationService.js"></script>
+    <script src="./TodoController.js"></script>
+
+    <script src="./directivas/userSesion.js"></script> 
+    <script src="./directivas/buscador.js"></script> 
+    
+  <!--     
+    <script src="./directivas/backButton.js"></script>
+    <script src="./directivas/modalDialog.js"></script> 
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="./sitio/js/jquery-3.2.1.min.js"></script>
+
+    <script src="./sitio/js/jquery-2.1.3.min.js"></script>
+    <script src="./sitio/js/bootstrap.min.js"></script>0
+
+    -->
+    <!-- css
+ -->
+    <!-- google font -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Kreon:300,400,700'>
+    
+    
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="120">
+
+    <!--
+    -->
+    <div ng-include src="'./views/nav.html'"></div>
+    
+            <!-- VISTAS PARCIALES-->
+            <div ng-style="{'position':'relative'}">
+                    <div ng-view></div>
+            </div>
+        
+
+    <footer id="footer" class="dark-wrapper">
+        <section class="ss-style-top"></section>
+        <div class="container inner">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; Anonimus
+                    <br/>Powered by <a class="themeBy" href="http://www.alianza.edu.uy">Alianza Uruguay-Estados Unidos</a>
+                </div>
+                <!--
+                <div class="col-sm-6">
+                    <div class="social-bar">
+                        <a href="#" class="fa fa-instagram tooltipped" title=""></a>
+                        <a href="#" class="fa fa-youtube-square tooltipped" title=""></a>
+                        <a href="#" class="fa fa-facebook-square tooltipped" title=""></a>
+                        <a href="#" class="fa fa-pinterest-square tooltipped" title=""></a>
+                        <a href="#" class="fa fa-google-plus-square tooltipped" title=""></a>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+
+
+
+</body>
+</html>

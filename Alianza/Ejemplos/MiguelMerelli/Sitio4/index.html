@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IntensaMente</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        #texto {
+            font-size: 250px;
+            transform: rotate(90deg);
+            margin-top: 170px;
+        }
+    </style>
+    <script>
+        var palabra = "";
+
+        var img = {
+            triste: ":'(",
+            mal: ":(",
+            maso: ":/",
+            bien: ":)",
+            super: ":D",
+            orgulloso: "=D"
+        }
+
+        function boton() {
+            var palabra = $("#mensaje").val();
+            console.log("-------------------------------------");
+            console.log("texto: " + palabra)
+            $.ajax({
+                type: "POST",
+                url: 'https://apiv2.indico.io/sentiment',
+
+                data: {
+                    'api_key': "52285286b82338f73f09e01d334e87ac",
+                    "data": palabra,
+                    "language": "spanish"
+                },
+                success: function (response) {
+                    var obj = JSON.parse(response);
+                    var resultado = obj.results;
+                    var a = "";
+                    //console.log(resultado);
+
+                    if (resultado < 0.20) {
+                        a = "triste";
+                    } else if (resultado < 0.40) {
+                        a = "mal";
+                    } else if (resultado < 0.60) {
+                        a = "maso";
+                    } else if (resultado < 0.75) {
+                        a = "bien";
+                    } else if (resultado < 0.85) {
+                        a = "super";
+                    } 
+                    
+                    
+                    
+                    
+                    else {
+                        a = "orgulloso";
+                    }
+                    console.log(img[a]);
+                    $("#texto").text(img[a]);
+                    $("#resultado").text(resultado);
+                    console.log("-------------------------------------");
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>ESCRIBE PUTO</h2>
+        <div class="row" id="fila1">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <textarea class="form-control" rows="8" id="mensaje" placeholder="Escribe algo*"></textarea>
+                </div>
+
+                <button class="btn btn-primary form-control" onclick="boton()">Enviar</button>
+            </div>
+            <div class="col-md-7">
+                <div id="texto">:)</div>
+                <div id="resultado"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

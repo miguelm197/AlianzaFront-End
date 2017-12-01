@@ -1,0 +1,89 @@
+
+<label ><user-sesion></user-sesion></label>
+<div>
+<h2><a href="#!/dashboard">Dashboard</a> --> Productos</h2>
+</div>
+
+
+<buscador ng-hide="modalAdded" busqueda="textobusqueda"></buscador>
+
+
+<div class="table-users" id="listado">
+        
+ 
+        <table class="table container-fluid" ng-hide="modalAdded" >
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Categoria</th>
+                    <th>Unidad</th>
+                    <th>Precio</th>
+                    <th>Caducidad</th>    
+                    <th>Cant</th>    
+                    <th></th>    
+                    <th></th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="verdura in verduras | toArray:false | filter:{descripcion:textobusqueda}">
+                    <div class="row">
+                        <td>
+                            <label ng-hide="verdura.selected">{{verdura.descripcion}}</label>
+                            <input class="formaRole"  ng-show="verdura.selected" type="text" ng-model="verdura.descripcion">
+                        </td>
+                        <td>
+                            <label ng-hide="verdura.selected">{{verdura.categoria}}</label>
+
+                            <select class="formaRole" ng-show="verdura.selected" ng-model="verdura.categoria">
+                                <option ng-repeat="categoria in categoriasPosibles" value="{{categoria}}">{{categoria}}</option>
+                            </select>  
+                        </td>   
+                        <td>
+                            <label ng-hide="verdura.selected">{{verdura.unidad}}</label>
+                            <input class="formaCantidad" ng-show="verdura.selected" type="text" ng-model="verdura.unidad">
+                        </td>
+                        <td>
+                            <label ng-hide="verdura.selected">{{verdura.precio}}</label>
+                            <input class="formaCantidad" ng-show="verdura.selected" type="text" ng-model="verdura.precio">
+                        </td>
+                        <td>
+                            <label ng-hide="verdura.selected">{{verdura.fechaCaducidad | date: 'dd-MM-yyyy'}}</label>
+                            <input class="formaCaducidad" ng-show="verdura.selected" type="date" placeholder="yyyy-MM-dd" min="2013-01-01" ng-model="verdura.fechaCaducidad">
+                        </td>
+                        <td>
+                            <label ng-hide="verdura.selected">{{verdura.cantidad}}</label>
+                            <input class="formaCantidad"  ng-show="verdura.selected" type="text" ng-model="verdura.cantidad">
+
+                        </td>
+
+                        <td>
+                            <div ng-click="hola()">Tocame</div>
+
+                            <div ng-show="verdura.selected" ng-style="{'text-align':'center'}">
+                                
+                                <div ngf-drop ngf-select ng-model="verdu" class="drop-box" 
+                                    ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                                    accept="image/*,application/pdf" 
+                                    ngf-pattern="'image/*,application/pdf'">Cargar imagen</div>
+                                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                                
+                                <img ngf-src="!verdu[0].$error && verdu[0]">
+                
+                            </div>
+                        </td>
+
+                        <td><button class="btn-warning" ng-show="!modalEdited" ng-click="oneSelected($index)">Editar</button>
+                            <button class="btn-success" ng-show="modalEdited" ng-click="guardarVerdura($index,verdura)">Guardar</button></td>
+                        <td><button class="btn-danger" ng-show="!modalEdited" ng-click="borrarVerdura($index,verdura)">Borrar</button></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>        
+        <hr />
+
+        <button class="btn-success" ng-hide="modalAdded || modalEdited" ng-click="oneAdded(true)">Agregar verdura</button></td>
+        <button class="btn-danger" ng-show="modalAdded" ng-click="oneAdded(false)">Cancelar</button></td>
+   
+        <div ng-show="modalAdded" ng-include src="'./productos/nuevoProducto.html'"></div>
+        
+</div>

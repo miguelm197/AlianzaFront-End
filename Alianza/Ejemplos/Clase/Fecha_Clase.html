@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript </title>
+        <script type="text/javascript">
+
+        function Fecha(d,m,a){
+            var dia=d;
+            var mes=m;
+            var anio=a;
+
+            //Privilegiado getter
+            this.getDia = function(){
+                return dia;
+            }
+            //Privilegiado setter
+            this.setDia = function(d){
+                dia = d;
+            }
+
+             this.getMes = function(){
+                return mes;
+            }
+            //Privilegiado setter
+            this.setMes = function(m){
+                mes = m;
+            }
+             this.getAnio = function(){
+                return anio;
+            }
+            //Privilegiado setter
+            this.setAnio = function(a){
+                anio = a;
+            }
+
+            // privilegiado y usa variable privada directo 
+            this.esIgual2 = function(fecha){
+                if ((dia == fecha.getDia())&&(this.getMes() == fecha.getMes()) && (this.getAnio() == fecha.getAnio()))
+                    return true;
+                else
+                    return false;
+            }
+
+            this.esPosterior = function(fecha){
+                if (this.getAnio()>fecha.getAnio())
+                    return true;
+                else if (this.getAnio()==this.getAnio())
+                    if (this.getMes()>fecha.getMes())
+                        return true;
+                    else if (this.getMes()==this.getMes())
+                        if (this.getDia()>fecha.getDia())
+                            return true;
+                        else 
+                            return false;
+                    else 
+                        return false;
+                else 
+                    return false;
+            }
+        }
+            Fecha.prototype.id = 1; 
+            Fecha.id2 = 3; 
+            //metodo publico 
+            Fecha.prototype.esIgual = function(fecha){
+                if ((fecha.getDia() == fecha.getDia())&&(this.getMes() == fecha.getMes()) && (this.getAnio() == fecha.getAnio()))
+                    return true;
+                else
+                    return false;
+            }
+        
+        var fecha1 = new Fecha(10,4,1986);
+        console.log(fecha1.id);
+        fecha1.id= 5;
+        console.log(fecha1.id);
+        var fecha2 = new Fecha(10,4,1986);
+       // var result = restarFechas(fecha1,fecha2);
+       // console.log(result);
+      //  console.log(fecha1.getDia());
+      //  fecha1.setDia(12);
+      //  var fecha3 = fecha1.restarFechas(fecha2);
+      //  console.log(fecha3.getDia());
+        </script>
+        
+    </head>
+
+    <body>
+        <h1 id= "titulo"> Hello World! </h1>
+        <input type="text" id="campoEntrada" />
+        <input type="submit" value="Click" onclick="test()" />
+    </body>
+</html>

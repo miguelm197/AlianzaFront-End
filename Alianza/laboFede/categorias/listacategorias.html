@@ -1,0 +1,50 @@
+
+<label ><user-sesion></user-sesion></label>
+<div>
+<h3>Listado de CATEGORIAS</h3>
+</div>
+
+
+<div class="table-users" id="listado">
+        
+ 
+        <table class="table container-fluid">
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                    <th></th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="categoria in categorias">
+                    <div class="row">
+                            <td>
+                                <label>{{categoria.denominacion}}</label>
+                            </td>
+                            <td>
+                            <label>{{categoria.descripcion}}</label>
+                        </td>
+                        <td><button class="btn-danger"  ng-click="borrarcategoria($index,categoria)">Borrar</button></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>        
+        <hr />
+
+        
+</div>
+
+
+<div class="table-users">
+    <form class="" method="post" action="#">
+        <h3>Ingrese la nueva categoria</h3>
+        <div class="form-group">
+            <input type="textarea" id="Text1" class="form-control" ng-model="categoriaModelo.denominacion" placeholder="Ingrese el título de la nueva categoría" required />
+            <input type="textarea" id="Text1" class="form-control" ng-model="categoriaModelo.descripcion" placeholder="Ingrese la descripción de la nueva categoria" required />
+        </div>
+    </form>
+    <button class="btn-success" ng-click="register()">Agregar</button>   
+</div>
+
+            

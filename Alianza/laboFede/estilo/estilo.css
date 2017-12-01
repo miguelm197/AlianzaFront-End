@@ -1,0 +1,68 @@
+
+/*Flex*/
+.container_flex{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+
+/*
+ #encaplogin {
+   padding: 60px !important;
+ }
+
+ #encapregistro {
+  padding: 60px !important;
+  
+ }
+*/
+
+ div.ng-scope {
+   padding-bottom: 20px !important;
+   padding-left: 10px;
+   padding-right: 10px;
+   text-align: center;
+ }
+
+ .formaCantidad {
+   width: 60px;
+   text-align: center;
+ }
+ .formaCaducidad {
+  width: 150px;
+  height: 30px
+}
+.formaRole {
+  width: 70px;
+  height: 30px
+}
+.formaEmail {
+  width: 200px;
+  height: 30px
+}
+.esNombre {
+  width: 150px;
+  height: 30px
+}
+
+
+.zoom{
+  /* Aumentamos la anchura y altura durante 2 segundos */
+  transition: width 2s, height 2s, transform 2s;
+  -moz-transition: width 2s, height 2s, -moz-transform 2s;
+  -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+  -o-transition: width 2s, height 2s,-o-transform 2s;
+}
+.zoom:hover{
+  /* tranformamos el elemento al pasar el mouse por encima al doble de
+     su tamaño con scale(2). */
+  transform : scale(2);
+  -moz-transform : scale(2);      /* Firefox */
+  -webkit-transform : scale(2);   /* Chrome - Safari */
+  -o-transform : scale(2);        /* Opera */
+}
+
+.listaProductos{
+  
+}

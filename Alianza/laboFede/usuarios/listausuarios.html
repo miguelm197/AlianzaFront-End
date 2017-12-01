@@ -1,0 +1,49 @@
+<div>
+<label ><user-sesion></user-sesion></label>
+<h2><a href="#!/dashboard">Dashboard</a> --> Usuarios</h2>
+</div>
+
+<buscador ng-hide="modalAdded" busqueda="textobusqueda"></buscador>
+
+
+<div class="table-users table-responsive" id="listado">
+        
+        <table class="table" ng-hide="modalAdded">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>email</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="usuario in usuarios | toArray:false | filter:{nombre:textobusqueda}">
+                    <div class="row">
+                        <td>
+                            <label ng-hide="usuario.selected">{{usuario.nombre}}</label>
+                            <input class="esNombre" ng-show="usuario.selected" type="text" ng-model="usuario.nombre">
+                        </td>
+                        <td>
+                            <label ng-hide="usuario.selected">{{usuario.email}}</label>
+                            <input class="formaEmail" ng-show="usuario.selected" type="text" ng-model="usuario.email">
+                        </td>
+                        <td>{{usuario.username}}</td>
+                        <td>
+                            <select class="formaRole" ng-show="usuario.selected" ng-options="role as role for role in RolesPosibles track by role" ng-model="usuario.role"></select>                           
+                            <label ng-hide="usuario.selected">{{usuario.role}}</label>
+                        </td>
+                        <td><button class="btn-warning" ng-show="!modalEdited" ng-click="oneSelected($index)">Editar</button>
+                            <button class="btn-success" ng-show="modalEdited || usuarios[index].selected" ng-click="guardarUsuario($index,usuario)">Guardar</button></td>
+                        <td><button class="btn-danger" ng-show="!modalEdited" ng-click="borrarUsuario($index,usuario)">Borrar</button></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table> 
+
+        <button class="btn-success" ng-hide="modalAdded" ng-click="oneAdded(true)">Agregar Usuario</button></td>
+        <button class="btn-danger" ng-show="modalAdded" ng-click="oneAdded(false)">Cancelar</button></td>
+
+        <div ng-show="modalAdded" ng-include src="'./usuarios/nuevoUsuario.html'"></div>
+ 
+</div>

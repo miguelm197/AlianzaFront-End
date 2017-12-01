@@ -1,0 +1,55 @@
+
+<label ><user-sesion></user-sesion></label>
+<div>
+<h3>Listado de OFERTAS</h3>
+</div>
+
+
+<div class="table-users" id="listado">
+        
+ 
+        <table class="table container-fluid">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Detalle</th>
+                    <th>Precio</th>
+                    <th></th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="oferta in ofertas">
+                    <div class="row">
+                            <td>
+                                <label>{{oferta.producto}}</label>
+                            </td>
+                            <td>
+                            <label>{{oferta.descripcion}}</label>
+                        </td>
+                        <td>
+                            <label>{{oferta.precio}}</label>
+                        </td>
+                        <td><button class="btn-danger"  ng-click="borrarOferta($index,oferta)">Borrar</button></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>        
+        <hr />
+
+        
+</div>
+
+
+<div class="table-users">
+    <form class="" method="post" action="#">
+        <h3>Ingrese la nueva oferta</h3>
+        <div class="form-group">
+            <select ng-options="oferta as oferta for oferta in ofertasPosibles track by oferta" ng-model="ofertaModelo.producto" required></select>                           
+            <input type="textarea" id="Text1" class="form-control" ng-model="ofertaModelo.descripcion" placeholder="Ingrese el texto para mostrar de la nueva oferta" required />
+            <input class="formaCantidad" type="text" ng-model="ofertaModelo.precio" required>
+        </div>
+    </form>
+    <button class="btn-success" ng-click="register()">Agregar</button>   
+</div>
+
+            

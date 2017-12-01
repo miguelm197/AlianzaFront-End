@@ -1,0 +1,67 @@
+Declarar CONSTANTES
+valor_Agua=40
+valor_Jugo=50
+valor_Papas=40
+valor_Aros=50
+valor_Combo=110
+valor_hambu=180
+
+Declarar VARIABLES
+Total_Pedido = 0
+
+Repetir (while)
+
+	'Inicializa variables de la línea del pedido
+	b_Agua = falso
+	b_Jugo = falso
+	b_Papas = falso
+	b_Aros = falso
+	Producto = ""
+	Cantidad = 0
+
+   	Preguntar: Ingresar Producto
+	Preguntar: Cantidad
+
+	si (Producto="Fin")
+		SALE while
+	si Producto = COMBO {
+		Total_Pedido = valor_Combo * Cantidad
+		Llamar f_Pedido(falso, falso, falso, falso)
+	 else
+		Llamar f_Pedido(falso, falso, falso, falso)
+		si b_Agua = Verdadero {
+			Total_Pedido = Total_Pedido + valor_Agua * Cantidad
+		{
+		si b_Jugo = Verdadero{
+			Total_Pedido = Total_Pedido + valor_Jugo * Cantidad
+		}
+		si b_Papas = Verdadero {
+			Total_Pedido = Total_Pedido + valor_Papas * Cantidad
+		}
+		si b_Aros = Verdadero {
+			Total_Pedido = Total_Pedido + valor_Aros * Cantidad
+		}
+	}
+
+	Imprime Línea del Pedido
+FIN	
+
+
+
+FUNCION f_PEDIDO(b_Agua, b_Jugo, b_Papas, b_Aros)
+Preguntar "Quiere Bebida" (Si/No)
+	Si Bebida = "Si"
+		Si Bebida = "Agua"
+			b_Agua = Verdadero
+		 else
+			b_Jugo = Verdadero
+		fin
+
+Preguntar "Quiere Complemento" (Si/No)
+	Si Complemento = Si
+		Si Complemento = "Papas"
+			b_Papas = Verdadero
+		 else
+			b_Comple = Verdadero
+		fin
+DEVOLVER(b_Agua, b_Jugo, b_Papas, b_Aros)

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+
+
+</script>
+
+</head>
+<body>
+
+<script>
+
+
+function Fecha(ddd,mes,anio){
+    var dia = ddd;
+    this.mes=mes;
+    this.anio=anio;
+    this.valor=7;
+    this.esPosterior = function(fechaComparar){    // metodo privilegiado, pueden acceder a propiedades y metodos privados
+
+        if (this.anio>fechaComparar.anio){
+            return true;
+        }else if(this.anio==fechaComparar.anio){
+            if (this.mes>fechaComparar.mes){
+                return true;
+            }else if (this.mes==fechaComparar.mes){
+                if (this.dia>fechaComparar.dia){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        };
+    };
+};
+
+var fecha1 = new Fecha(10,5,1988);
+var fecha2 = new Fecha(9,5,1988);
+console.log(fecha1);
+
+var resultado = fecha1.esPosterior(fecha2);
+//console.log(fecha1.esPosterior);
+//console.log(resultado);
+console.log(fecha1.mes);
+
+fecha1.diaextra = 20;            // le estoy agregando una propiedad al objeto
+console.log(fecha1.dia);
+console.log(fecha1.mes);
+//console.log(fecha1);
+
+
+</script>
+
+</body>
+</html>
+

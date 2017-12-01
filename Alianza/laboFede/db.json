@@ -1,0 +1,155 @@
+{
+  "usuarios": [
+    {
+      "id": 2,
+      "label": "public",
+      "nombre": "asdf",
+      "email": "afd",
+      "role": "admin"
+    },
+    {
+      "nombre": "admin",
+      "email": "admin@admina",
+      "username": "admin",
+      "password": "21232f297a57a5a743894a0e4a801fc3",
+      "role": "admin",
+      "id": 9
+    },
+    {
+      "nombre": "as",
+      "email": "as@a",
+      "username": "a",
+      "password": "0cc175b9c0f1b6a831c399e269772661",
+      "role": "public",
+      "id": 10
+    },
+    {
+      "nombre": "carlos",
+      "email": "carlos@g",
+      "username": "carlos",
+      "password": "0cc175b9c0f1b6a831c399e269772661",
+      "role": "public",
+      "id": 11
+    }
+  ],
+  "verduras": [
+    {
+      "descripcion": "papa",
+      "precio": 50,
+      "unidad": "kilo",
+      "cantidad": "125",
+      "id": 1,
+      "fechaCaducidad": "2019-09-13T03:00:00.000Z",
+      "categoria": "de Bulbo",
+      "files": ""
+    },
+    {
+      "descripcion": "remolacha",
+      "precio": 30,
+      "unidad": "kilo",
+      "cantidad": "20",
+      "fechaCaducidad:": "31/12/2017",
+      "id": 2,
+      "fechaCaducidad": null,
+      "categoria": "Horticolas",
+      "files": ""
+    },
+    {
+      "descripcion": "espinaca",
+      "precio": 30,
+      "unidad": "unidad",
+      "cantidad": 8,
+      "fechaCaducidad:": "31/12/2017",
+      "id": 3,
+      "categoria": "de Bulbo",
+      "fechaCaducidad": null,
+      "files": ""
+    },
+    {
+      "descripcion": "tomate",
+      "precio": 30,
+      "unidad": "kilo",
+      "cantidad": 8,
+      "fechaCaducidad:": "31/12/2017",
+      "id": 4,
+      "categoria": "de Hoja",
+      "fechaCaducidad": null,
+      "files": ""
+    },
+    {
+      "descripcion": "zanahoria",
+      "precio": 30,
+      "unidad": "kilo",
+      "cantidad": 8,
+      "fechaCaducidad:": "31/12/2017",
+      "id": 5,
+      "categoria": "de Hoja",
+      "fechaCaducidad": null,
+      "files": ""
+    },
+    {
+      "descripcion": "Pera",
+      "precio": 51,
+      "unidad": "kilo",
+      "fechaCaducidad": "2015-02-02T03:00:00.000Z",
+      "id": 6,
+      "categoria": "",
+      "files": ""
+    },
+    {
+      "descripcion": "manarina",
+      "precio": 85,
+      "unidad": "52",
+      "id": 7
+    }
+  ],
+  "ofertas": [
+    {
+      "producto": "papa",
+      "descripcion": "dsafsssdf",
+      "precio": "50",
+      "id": 1
+    },
+    {
+      "producto": "espinaca",
+      "descripcion": "asdfdfasfasdf",
+      "precio": "100",
+      "id": 2
+    },
+    {
+      "producto": "zanahoria",
+      "descripcion": "Comprela que está muy rica",
+      "precio": "10",
+      "id": 3
+    },
+    {
+      "producto": "tomate",
+      "descripcion": "dfasf",
+      "precio": "33",
+      "id": 4
+    },
+    {
+      "producto": "papa",
+      "descripcion": "sdfadfadsfa",
+      "precio": "34",
+      "id": 5
+    }
+  ],
+  "categorias": [
+    {
+      "denominacion": "de Hoja",
+      "descripcion": "",
+      "id": 1
+    },
+    {
+      "denominacion": "Horticolas",
+      "descripcion": "",
+      "id": 3
+    },
+    {
+      "denominacion": "de Bulbo",
+      "descripcion": "",
+      "id": 4
+    }
+  ]
+}
